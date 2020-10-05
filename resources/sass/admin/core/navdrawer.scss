@@ -1,0 +1,21 @@
+/* NAVIGATION DRAWER */
+#navDrawer {
+  .nav-link.router-link-exact-active.router-link-active {
+    background: $primary-color !important;
+    color: #fff;
+  }
+  .nav-link:focus {
+    background: transparent !important;
+  }
+}
+
+/* LANDING NAVBAR */
+#sticky-header {
+  .logo img {
+    width: 130px !important;
+  }
+}
+
+body {
+  display: none;
+}

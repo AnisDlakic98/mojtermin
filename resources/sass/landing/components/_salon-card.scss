@@ -1,0 +1,45 @@
+/* SALON CARD */
+.card.salon-card {
+  border: none;
+  .card-img-top {
+    height: 200px;
+    object-fit: cover;
+    transition: 0.5s;
+  }
+  .card-title {
+    margin-bottom: 5px;
+    transition: 0.5s;
+  }
+  .hoverable-link {
+    &:hover {
+      .card-title {
+        color: $primary-color;
+      }
+
+    }
+  }
+  .card-body {
+    padding: 1rem 0;
+  }
+  cite {
+    color: $light_gray;
+    font-weight: 300;
+    font-style: inherit;
+    font-size: 0.9rem;
+  }
+  .badge-primary {
+    background-color: $primary-color;
+    padding: .5rem .8em;
+    margin-top: 5px;
+  }
+  .salon-link {
+    overflow: hidden;
+    border-radius: 10px;
+    &:hover {
+      .card-img-top {
+        transform: scale(1.3);
+      }
+    }
+  }
+
+}
