@@ -9,12 +9,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-    <title>AdminLTE 3 | Starter</title>
+    <title>MojTermin | Kontrolna tabla</title>
 
-    <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="/css/admin.css">
+    <link rel="stylesheet" href="{{ mix("/css/app.css") }}">
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper" id="app">
@@ -26,10 +25,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
             </li>
             <li class="nav-item d-none d-sm-inline-block">
-                <a href="index3.html" class="nav-link">Home</a>
-            </li>
-            <li class="nav-item d-none d-sm-inline-block">
-                <a href="#" class="nav-link">Contact</a>
+                <a href="/" class="nav-link">Home</a>
             </li>
         </ul>
 
@@ -53,10 +49,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- Main Sidebar Container -->
     <aside class="main-sidebar sidebar-dark-primary elevation-4" id="navDrawer">
         <!-- Brand Logo -->
-        <a href="index3.html" class="brand-link">
-            <img src="/img/logo.png" alt="mojtermin logo" class="brand-image img-circle elevation-3"
-                 style="opacity: .8">
-            <span class="brand-text font-weight-light">MojTermin</span>
+        <a href="/" class="brand-link d-flex">
+            <img src="/img/mojtermin_logo_dark.png" alt="mojtermin-logo" class="w-100">
         </a>
 
         <!-- Sidebar -->
@@ -67,7 +61,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <img src="/img/profile.png" class="img-circle elevation-2" alt="User Image">
                 </div>
                 <div class="info">
-                    <a href="#" class="d-block">{{ auth()->user()->name }}</a>
+                    <a href="" class="d-block">{{ auth()->user()->name }}</a>
                 </div>
             </div>
 
@@ -81,39 +75,21 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             <p>Dashboard</p>
                         </router-link>
                     </li>
-                    @can('isAdmin')
-                        <li class="nav-item has-treeview">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-user-shield"></i>
-                                <p>
-                                    Management
-                                    <i class="right fas fa-angle-left"></i>
-                                </p>
-                            </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <router-link to="users" class="nav-link">
-                                        <i class="fas fa-user-secret nav-icon"></i>
-                                        <p>Users</p>
-                                    </router-link>
-                                </li>
-                            </ul>
-                        </li>
-                    @endcan
+
                     <li class="nav-item">
                         <router-link to="/profile" class="nav-link">
                             <i class="nav-icon fas fa-calendar-alt"></i>
                             <p>Profile</p>
                         </router-link>
                     </li>
-                    @can('isAdmin')
-                        <li class="nav-item">
-                            <router-link to="/developer" class="nav-link">
-                                <i class="nav-icon fas fa-cogs"></i>
-                                <p>Developer</p>
-                            </router-link>
-                        </li>
-                    @endcan
+
+                    <li class="nav-item">
+                        <router-link to="/services" class="nav-link">
+                            <i class="nav-icon fas fa-calendar-alt"></i>
+                            <p>Usluge</p>
+                        </router-link>
+                    </li>
+
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('logout') }}"
                            onclick="event.preventDefault();document.getElementById('logout-form').submit();">
@@ -161,7 +137,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <script>
     var user = JSON.parse(atob("{{ base64_encode(auth()->user()) }}"));
     window.user = user;
-    console.log(user);
     // window.user = $json(auth()->user());
 </script>
 

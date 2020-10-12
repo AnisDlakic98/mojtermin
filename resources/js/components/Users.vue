@@ -1,6 +1,6 @@
 <template>
     <div class="row" id="usersManagment">
-        <div v-if="$gate.isAdmin()" class="col-12">
+        <div class="col-12">
             <div class="card">
                 <div class="card-header">
                     <h3 class="card-title">Users Managment</h3>
@@ -42,9 +42,6 @@
                 <!-- /.card-body -->
             </div>
             <!-- /.card -->
-        </div>
-        <div v-else>
-            <not-found></not-found>
         </div>
 
         <!-- Modal -->

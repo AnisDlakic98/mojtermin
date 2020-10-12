@@ -144,6 +144,122 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -155,16 +271,41 @@ __webpack_require__.r(__webpack_exports__);
         type: "",
         bio: "",
         photo: ""
+      }),
+      salonForm: new Form({
+        id: "",
+        name: "",
+        description: "",
+        address: "",
+        phone_number: "",
+        stars: "",
+        image_path: "",
+        website: "",
+        latitude: "",
+        longitude: ""
       })
     };
   },
   methods: {
+    loadUserProfile: function loadUserProfile() {
+      var _this = this;
+
+      axios.get("/api/profile").then(function (_ref) {
+        var data = _ref.data;
+
+        _this.form.fill(data.user);
+
+        _this.salonForm.fill(data.salon);
+
+        console.log(data);
+      });
+    },
     getProfilePhoto: function getProfilePhoto() {
       var photo = this.form.photo.length > 200 ? this.form.photo : "img/profile/" + this.form.photo;
       return photo;
     },
     updatePhoto: function updatePhoto(e) {
-      var _this = this;
+      var _this2 = this;
 
       var file = e.target.files[0];
       var reader = new FileReader();
@@ -172,7 +313,7 @@ __webpack_require__.r(__webpack_exports__);
       if (file['size'] < 2000000) {
         reader.onloadend = function (file) {
           // console.log(reader.result);
-          _this.form.photo = reader.result;
+          _this2.form.photo = reader.result;
         };
 
         reader.readAsDataURL(file);
@@ -188,8 +329,11 @@ __webpack_require__.r(__webpack_exports__);
         });
       }
     },
+    updateSalon: function updateSalon() {
+      this.$Progress.start();
+    },
     updateProfile: function updateProfile() {
-      var _this2 = this;
+      var _this3 = this;
 
       this.$Progress.start();
       this.form.put("api/profile").then(function () {
@@ -198,21 +342,16 @@ __webpack_require__.r(__webpack_exports__);
           title: "User updated successfully"
         });
 
-        _this2.$Progress.finish();
+        _this3.$Progress.finish();
       })["catch"](function (error) {
-        _this2.$Progress.fail();
+        _this3.$Progress.fail();
 
         console.log(error);
       });
     }
   },
   created: function created() {
-    var _this3 = this;
-
-    axios.get("api/profile").then(function (_ref) {
-      var data = _ref.data;
-      return _this3.form.fill(data);
-    });
+    this.loadUserProfile();
   }
 });
 
@@ -273,7 +412,7 @@ var render = function() {
                         staticClass: "col-sm-2 col-form-label",
                         attrs: { for: "name" }
                       },
-                      [_vm._v("Name")]
+                      [_vm._v("Ime i prezime:")]
                     ),
                     _vm._v(" "),
                     _c(
@@ -371,48 +510,9 @@ var render = function() {
                       "label",
                       {
                         staticClass: "col-sm-2 col-form-label",
-                        attrs: { for: "bio" }
-                      },
-                      [_vm._v("Experience")]
-                    ),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "col-sm-10" }, [
-                      _c("textarea", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.form.bio,
-                            expression: "form.bio"
-                          }
-                        ],
-                        staticClass: "form-control",
-                        attrs: {
-                          name: "bio",
-                          id: "bio",
-                          placeholder: "Experience"
-                        },
-                        domProps: { value: _vm.form.bio },
-                        on: {
-                          input: function($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.$set(_vm.form, "bio", $event.target.value)
-                          }
-                        }
-                      })
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "form-group row" }, [
-                    _c(
-                      "label",
-                      {
-                        staticClass: "col-sm-2 col-form-label",
                         attrs: { for: "photo" }
                       },
-                      [_vm._v("Profile Photo")]
+                      [_vm._v("Profilna slika")]
                     ),
                     _vm._v(" "),
                     _c("div", { staticClass: "col-sm-10" }, [
@@ -431,7 +531,7 @@ var render = function() {
                         staticClass: "col-sm-2 col-form-label",
                         attrs: { for: "password" }
                       },
-                      [_vm._v("Password")]
+                      [_vm._v("Lozinka")]
                     ),
                     _vm._v(" "),
                     _c(
@@ -455,7 +555,7 @@ var render = function() {
                             type: "password",
                             name: "password",
                             id: "password",
-                            placeholder: "Password"
+                            placeholder: "Unesite lozinku"
                           },
                           domProps: { value: _vm.form.password },
                           on: {
@@ -494,7 +594,11 @@ var render = function() {
                             }
                           }
                         },
-                        [_vm._v("Update")]
+                        [
+                          _vm._v(
+                            "\n                                        Izmijeni\n                                    "
+                          )
+                        ]
                       )
                     ])
                   ])
@@ -503,7 +607,463 @@ var render = function() {
             ),
             _vm._v(" "),
             _c("div", { staticClass: "tab-pane", attrs: { id: "timeline" } }, [
-              _vm._v("\n                        nesto\n                    ")
+              _c("form", { staticClass: "form-horizontal" }, [
+                _c("div", { staticClass: "form-group row" }, [
+                  _c(
+                    "label",
+                    {
+                      staticClass: "col-sm-2 col-form-label",
+                      attrs: { for: "name" }
+                    },
+                    [_vm._v("Naziv salona:")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "col-sm-10" },
+                    [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.salonForm.name,
+                            expression: "salonForm.name"
+                          }
+                        ],
+                        staticClass: "form-control",
+                        class: {
+                          "is-invalid": _vm.salonForm.errors.has("name")
+                        },
+                        attrs: {
+                          type: "text",
+                          name: "name",
+                          id: "name",
+                          placeholder: "Naziv salona"
+                        },
+                        domProps: { value: _vm.salonForm.name },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(_vm.salonForm, "name", $event.target.value)
+                          }
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("has-error", {
+                        attrs: { form: _vm.salonForm, field: "name" }
+                      })
+                    ],
+                    1
+                  )
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "form-group row" }, [
+                  _c(
+                    "label",
+                    {
+                      staticClass: "col-sm-2 col-form-label",
+                      attrs: { for: "description" }
+                    },
+                    [_vm._v("Opis salona:")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "col-sm-10" },
+                    [
+                      _c("textarea", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.salonForm.description,
+                            expression: "salonForm.description"
+                          }
+                        ],
+                        staticClass: "form-control",
+                        class: {
+                          "is-invalid": _vm.salonForm.errors.has("description")
+                        },
+                        attrs: {
+                          name: "description",
+                          id: "description",
+                          placeholder: "Kratak opis salona..."
+                        },
+                        domProps: { value: _vm.salonForm.description },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(
+                              _vm.salonForm,
+                              "description",
+                              $event.target.value
+                            )
+                          }
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("has-error", {
+                        attrs: { form: _vm.salonForm, field: "description" }
+                      })
+                    ],
+                    1
+                  )
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "form-group row" }, [
+                  _c(
+                    "label",
+                    {
+                      staticClass: "col-sm-2 col-form-label",
+                      attrs: { for: "address" }
+                    },
+                    [_vm._v("Adresa:")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "col-sm-10" },
+                    [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.salonForm.address,
+                            expression: "salonForm.address"
+                          }
+                        ],
+                        staticClass: "form-control",
+                        class: {
+                          "is-invalid": _vm.salonForm.errors.has("address")
+                        },
+                        attrs: {
+                          type: "text",
+                          name: "address",
+                          id: "address",
+                          placeholder: "Unesite adresu"
+                        },
+                        domProps: { value: _vm.salonForm.address },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(
+                              _vm.salonForm,
+                              "address",
+                              $event.target.value
+                            )
+                          }
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("has-error", {
+                        attrs: { form: _vm.salonForm, field: "address" }
+                      })
+                    ],
+                    1
+                  )
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "form-group row" }, [
+                  _c(
+                    "label",
+                    {
+                      staticClass: "col-sm-2 col-form-label",
+                      attrs: { for: "phone_number" }
+                    },
+                    [_vm._v("Broj telefona:")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "col-sm-10" },
+                    [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.salonForm.phone_number,
+                            expression: "salonForm.phone_number"
+                          }
+                        ],
+                        staticClass: "form-control",
+                        class: {
+                          "is-invalid": _vm.salonForm.errors.has("phone_number")
+                        },
+                        attrs: {
+                          type: "text",
+                          name: "phone_number",
+                          id: "phone_number",
+                          placeholder: "Unesite kontakt telefon"
+                        },
+                        domProps: { value: _vm.salonForm.phone_number },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(
+                              _vm.salonForm,
+                              "phone_number",
+                              $event.target.value
+                            )
+                          }
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("has-error", {
+                        attrs: { form: _vm.salonForm, field: "phone_number" }
+                      })
+                    ],
+                    1
+                  )
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "form-group row" }, [
+                  _c(
+                    "label",
+                    {
+                      staticClass: "col-sm-2 col-form-label",
+                      attrs: { for: "website" }
+                    },
+                    [_vm._v("Websajt:")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "col-sm-10" },
+                    [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.salonForm.website,
+                            expression: "salonForm.website"
+                          }
+                        ],
+                        staticClass: "form-control",
+                        class: {
+                          "is-invalid": _vm.salonForm.errors.has("website")
+                        },
+                        attrs: {
+                          type: "text",
+                          name: "website",
+                          id: "website",
+                          placeholder: "Unesite websajt salona"
+                        },
+                        domProps: { value: _vm.salonForm.website },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(
+                              _vm.salonForm,
+                              "website",
+                              $event.target.value
+                            )
+                          }
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("has-error", {
+                        attrs: { form: _vm.salonForm, field: "website" }
+                      })
+                    ],
+                    1
+                  )
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "form-group row" }, [
+                  _c(
+                    "label",
+                    {
+                      staticClass: "col-sm-2 col-form-label",
+                      attrs: { for: "stars" }
+                    },
+                    [_vm._v("Broj zvijezdica:")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "col-sm-10" },
+                    [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.salonForm.stars,
+                            expression: "salonForm.stars"
+                          }
+                        ],
+                        staticClass: "form-control",
+                        class: {
+                          "is-invalid": _vm.salonForm.errors.has("stars")
+                        },
+                        attrs: {
+                          type: "number",
+                          name: "stars",
+                          id: "stars",
+                          placeholder: "Unesite broj zvijezdica"
+                        },
+                        domProps: { value: _vm.salonForm.stars },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(
+                              _vm.salonForm,
+                              "stars",
+                              $event.target.value
+                            )
+                          }
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("has-error", {
+                        attrs: { form: _vm.salonForm, field: "stars" }
+                      })
+                    ],
+                    1
+                  )
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "form-group row" }, [
+                  _vm._m(3),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-md-10" }, [
+                    _c("div", { staticClass: "row" }, [
+                      _c(
+                        "div",
+                        { staticClass: "col-sm-6" },
+                        [
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.salonForm.latitude,
+                                expression: "salonForm.latitude"
+                              }
+                            ],
+                            staticClass: "form-control",
+                            class: {
+                              "is-invalid": _vm.salonForm.errors.has("latitude")
+                            },
+                            attrs: {
+                              type: "text",
+                              name: "latitude",
+                              id: "latitude",
+                              placeholder: "Unesite geografsku širinu"
+                            },
+                            domProps: { value: _vm.salonForm.latitude },
+                            on: {
+                              input: function($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.$set(
+                                  _vm.salonForm,
+                                  "latitude",
+                                  $event.target.value
+                                )
+                              }
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("has-error", {
+                            attrs: { form: _vm.salonForm, field: "latitude" }
+                          })
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        { staticClass: "col-sm-6" },
+                        [
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.salonForm.longitude,
+                                expression: "salonForm.longitude"
+                              }
+                            ],
+                            staticClass: "form-control",
+                            class: {
+                              "is-invalid": _vm.salonForm.errors.has(
+                                "longitude"
+                              )
+                            },
+                            attrs: {
+                              type: "text",
+                              name: "longitude",
+                              id: "longitude",
+                              placeholder: "Unesite geografsku dužinu"
+                            },
+                            domProps: { value: _vm.salonForm.longitude },
+                            on: {
+                              input: function($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.$set(
+                                  _vm.salonForm,
+                                  "longitude",
+                                  $event.target.value
+                                )
+                              }
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("has-error", {
+                            attrs: { form: _vm.salonForm, field: "longitude" }
+                          })
+                        ],
+                        1
+                      )
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "form-group row" }),
+                _vm._v(" "),
+                _c("div", { staticClass: "form-group row" }, [
+                  _c("div", { staticClass: "offset-sm-2 col-sm-10" }, [
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-success",
+                        attrs: { type: "submit" },
+                        on: {
+                          click: function($event) {
+                            $event.preventDefault()
+                            return _vm.updateSalon($event)
+                          }
+                        }
+                      },
+                      [
+                        _vm._v(
+                          "\n                                        Izmijeni salon\n                                    "
+                        )
+                      ]
+                    )
+                  ])
+                ])
+              ])
             ])
           ])
         ])
@@ -559,7 +1119,7 @@ var staticRenderFns = [
               staticClass: "nav-link active",
               attrs: { href: "#settings", "data-toggle": "tab" }
             },
-            [_vm._v("Settings")]
+            [_vm._v("Korisnički\n                        detalji")]
           )
         ]),
         _vm._v(" "),
@@ -570,10 +1130,22 @@ var staticRenderFns = [
               staticClass: "nav-link",
               attrs: { href: "#timeline", "data-toggle": "tab" }
             },
-            [_vm._v("Activity")]
+            [_vm._v("Salon")]
           )
         ])
       ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-sm-2" }, [
+      _c(
+        "label",
+        { staticClass: "col-form-label", attrs: { for: "latitude" } },
+        [_vm._v("Lokacija salona:")]
+      )
     ])
   }
 ]

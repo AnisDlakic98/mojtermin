@@ -16,6 +16,11 @@ class DatabaseSeeder extends Seeder
             CountrySeeder::class,
             CitySeeder::class,
             CategorySeeder::class,
+            SalonSeeder::class,
+            StatusSeeder::class,
+            SalonStatusSeeder::class,
+            ServiceSeeder::class,
+            SalonServiceSeeder::class,
         ]);
     }
 }

@@ -16,13 +16,21 @@
 //@import "~@fortawesome/fontawesome-free/scss/solid";
 //@import "~@fortawesome/fontawesome-free/scss/fontawesome";
 
-// core
-//@import "core/navdrawer";
+// common
+@import "landing/variables";
+
+// Admin page
+@import "admin/core/nav";
 
 // Landing Page
-@import "landing/variables";
+
 @import "landing/common";
+@import "landing/btns";
+@import "landing/sections";
+
 @import "landing/components/header";
 @import "landing/components/salon-card";
+@import "landing/components/accordion";
+
 
 

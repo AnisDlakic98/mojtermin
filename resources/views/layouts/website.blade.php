@@ -12,7 +12,6 @@
     <link rel="stylesheet" href="{{ asset("theme/css/bootstrap.min.css") }}">
     <link rel="stylesheet" href="{{ asset("theme/css/owl.carousel.min.css") }}">
     <link rel="stylesheet" href="{{ asset("theme/css/magnific-popup.css") }}">
-    <link rel="stylesheet" href="{{ asset("theme/css/font-awesome.min.css") }}">
     <link rel="stylesheet" href="{{ asset("theme/css/themify-icons.css") }}">
     <link rel="stylesheet" href="{{ asset("theme/css/flaticon.css") }}">
     <link rel="stylesheet" href="{{ asset("theme/css/gijgo.css") }}">
@@ -43,7 +42,7 @@
         </div>
     </div>
 
-    <navigation></navigation>
+    @include('components.navbar')
 
     <main>
 
@@ -75,6 +74,7 @@
 <script src="{{ asset("theme/js/plugins.js") }}"></script>
 <script src="{{ asset("theme/js/gijgo.min.js") }}"></script>
 <script src="{{ asset("theme/js/main.js") }}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/js/all.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js"></script>
 <script src="{{ asset("/js/app2.js") }}"></script>
 

@@ -22,13 +22,18 @@ Route::get('/', function () {
 });
 
 
+Route::get('/', 'WebsiteController@welcomePageContent');
+
 Route::get('country/{country}/cities', 'CountryController@getCities');
+
+Route::get('salon-details/{id}', 'SalonController@show');
+
+
 
 
 Route::get('/register-customer', 'WebsiteController@registerCustomer');
 Route::get('/register-owner', 'WebsiteController@registerOwner');
 
-
 Route::get('/user', 'CustomerController@index')->name('user');
 Route::get('/admin', 'AdminController@index')->name('admin');
-//Route::get('{path}', 'HomeController@index')->where('path', '.*'); // solve refreshing component
+Route::get('{path}', function (){return view('admin.index');})->where('path', '.*'); // solve refreshing component

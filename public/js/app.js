@@ -79189,6 +79189,11 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODU
     component: function component() {
       return __webpack_require__.e(/*! import() */ 1).then(__webpack_require__.bind(null, /*! ./components/Developer */ "./resources/js/components/Developer.vue"));
     }
+  }, {
+    path: "/services",
+    component: function component() {
+      return __webpack_require__.e(/*! import() */ 4).then(__webpack_require__.bind(null, /*! ./components/services/Services */ "./resources/js/components/services/Services.vue"));
+    }
   }],
   mode: "history"
 }));

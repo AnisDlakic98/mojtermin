@@ -35,7 +35,15 @@ class Salon extends Model
     }
 
     public function city(){
-        return $this->belongsTo(Salon::class);
+        return $this->belongsTo(City::class);
+    }
+
+    public function statuses(){
+        return $this->belongsToMany(Status::class, 'salon_status', 'salon_id');
+    }
+
+    public function services(){
+        return $this->belongsToMany(Service::class, 'salon_service', 'salon_id');
     }
 
 }

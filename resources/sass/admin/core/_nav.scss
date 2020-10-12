@@ -4,6 +4,7 @@
     background: $primary-color !important;
     color: #fff;
   }
+
   .nav-link:focus {
     background: transparent !important;
   }
@@ -16,6 +17,8 @@
   }
 }
 
-body {
-  display: none;
+
+.brand-link img {
+  width: 70% !important;
+  margin: auto;
 }

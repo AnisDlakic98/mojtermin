@@ -1,0 +1,21 @@
+.btn-booking {
+  background: $primary-color;
+  padding: 12px 26px;
+  font-size: 17px;
+  font-weight: 500;
+  border: 1px solid transparent;
+  color: #fff;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  cursor: pointer;
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -ms-transition: 0.5s;
+  -o-transition: 0.5s;
+  transition: 0.5s;
+}
+
+.btn-booking:hover {
+  background: darken($primary-color, 15);
+}

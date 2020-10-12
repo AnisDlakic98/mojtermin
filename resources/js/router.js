@@ -19,6 +19,10 @@ export default new VueRouter({
         {
             path: "/developer",
             component: () => import("./components/Developer")
+        },
+        {
+            path: "/services",
+            component: () => import("./components/services/Services")
         }
     ],
     mode: "history"

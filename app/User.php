@@ -40,7 +40,7 @@ class User extends Authenticatable implements MustVerifyEmail
         'email_verified_at' => 'datetime',
     ];
 
-    public function salons(){
-        return $this->belongsToMany(Salon::class)->withTimestamps();
+    public function salon(){
+        return $this->belongsTo(Salon::class);
     }
 }

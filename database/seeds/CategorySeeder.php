@@ -14,10 +14,17 @@ class CategorySeeder extends Seeder
     {
         DB::table('categories')->insert(
             [
-                [ 'name' => 'kategorija 1'],
-                [ 'name' => 'kategorija 2'],
-                [ 'name' => 'kategorija 3'],
-                [ 'name' => 'kategorija 4'],
+                [ 'name' => 'Frizeri'],
+                [ 'name' => 'Pedikir & Manikir'],
+                [ 'name' => 'Fizioterapeuti'],
+                [ 'name' => 'Kozmetičari'],
+                [ 'name' => 'Tatoo'],
+                [ 'name' => 'Berberi'],
+                [ 'name' => 'Šminkeri & Makeup'],
+                [ 'name' => 'Depilacija'],
+                [ 'name' => 'Solarijumi'],
+                [ 'name' => 'Wellness'],
+                [ 'name' => 'Yoga SPA '],
             ]
         );
     }

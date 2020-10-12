@@ -22,10 +22,20 @@ class CreateSalonsTable extends Migration
             $table->integer('stars')->nullable();
             $table->string('image_path')->nullable();
             $table->integer('city_id')->unsigned();
-            $table->unsignedInteger('category_id'); // fk
+            $table->integer('category_id')->unsigned(); // fk
             $table->string('website')->nullable();
             $table->string('latitude')->nullable();
             $table->string('longitude')->nullable();
+
+            $table->foreign('category_id')
+                ->references('id')->on('categories')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
+
+            $table->foreign('city_id')
+                ->references('id')->on('cities')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
         });
     }
 

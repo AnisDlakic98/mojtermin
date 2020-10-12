@@ -21,6 +21,17 @@
 
     $(document).ready(function () {
 
+        $('.smooth-link').on('click', function (e) {
+            e.preventDefault();
+            var target = this.hash;
+            var $target = $(target);
+            $('html, body').stop().animate({
+                'scrollTop': $target.offset().top - 130
+            }, 400, 'swing', function () {
+                // window.location.hash = target;
+            });
+        });
+
 // mobile_menu
         var menu = $('ul#navigation');
         if (menu.length) {
