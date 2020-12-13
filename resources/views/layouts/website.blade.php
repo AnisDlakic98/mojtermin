@@ -26,10 +26,6 @@
 
 <body>
 
-<!--[if lte IE 9]>
-<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade
-    your browser</a> to improve your experience and security.</p>
-<![endif]-->
 
 <div id="app2">
 
@@ -81,8 +77,8 @@
 <script src="{{ asset("theme/js/plugins.js") }}"></script>
 <script src="{{ asset("theme/js/gijgo.min.js") }}"></script>
 <script src="{{ asset("theme/js/main.js") }}"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/js/all.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/js/all.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js"></script>
 <script src="{{ asset("/js/app2.js") }}"></script>
 
 @yield('scripts')
