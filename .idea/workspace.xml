@@ -50,8 +50,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/layouts/website.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="84">
-              <caret line="4" column="14" selection-start-line="4" selection-start-column="10" selection-end-line="4" selection-end-column="14" />
+            <state relative-caret-position="462">
+              <caret line="22" column="33" selection-start-line="22" selection-start-column="33" selection-end-line="22" selection-end-column="33" />
             </state>
           </provider>
         </entry>
@@ -69,10 +69,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>textare</find>
-      <find>default</find>
-      <find>da li</find>
-      <find>comment-form</find>
       <find>:key</find>
       <find>profile(</find>
       <find>img</find>
@@ -99,6 +95,10 @@
       <find>DATABASE_URL</find>
       <find>http</find>
       <find>https</find>
+      <find>) }}&quot;</find>
+      <find>&quot;{{ asset(</find>
+      <find>{{ asset(&quot;</find>
+      <find>&quot;) }}</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -546,12 +546,12 @@
       <workItem from="1607542729795" duration="8786000" />
       <workItem from="1607637153741" duration="5836000" />
       <workItem from="1607688536031" duration="181000" />
-      <workItem from="1607809736595" duration="19050000" />
+      <workItem from="1607809736595" duration="19434000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="283848000" />
+    <option name="totallyTimeSpent" value="284232000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="809" extended-state="6" />
@@ -965,8 +965,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/layouts/website.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="4" column="14" selection-start-line="4" selection-start-column="10" selection-end-line="4" selection-end-column="14" />
+        <state relative-caret-position="462">
+          <caret line="22" column="33" selection-start-line="22" selection-start-column="33" selection-end-line="22" selection-end-column="33" />
         </state>
       </provider>
     </entry>
