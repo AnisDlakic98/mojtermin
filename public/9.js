@@ -1,1 +1,321 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[9],{324:function(t,e,s){"use strict";s.r(e);var a={data:function(){return{users:[],editMode:!1,form:new Form({id:"",name:"",email:"",password:"",type:"",bio:"",photo:""})}},methods:{loadUsers:function(){var t=this;this.$gate.isAdmin()&&(this.$Progress.start(),axios.get("api/user").then((function(e){t.users=e.data.data,t.$Progress.finish()}),(function(e){console.log(e),t.$Progress.fail()})))},createUser:function(){this.form.post("api/user").then((function(){$("#usersModal").modal("hide"),toast.fire({icon:"success",title:"User created successfully"}),Fire.$emit("refreshDataTable")})).catch((function(t){console.log("greska u dodavanju")}))},updateUser:function(){var t=this;this.$Progress.start(),this.form.put("api/user/".concat(this.form.id)).then((function(){$("#addNewModal").modal("hide"),toast.fire({icon:"success",title:"User updated successfully"}),Fire.$emit("refreshDataTable"),t.$Progress.finish()})).catch((function(e){t.$Progress.fail(),console.log(e)}))},deleteUser:function(t){var e=this;swal.fire({title:"Are you sure?",text:"You won't be able to revert this!",icon:"warning",showCancelButton:!0,confirmButtonColor:"#3085d6",cancelButtonColor:"#d33",confirmButtonText:"Yes, delete it!"}).then((function(s){s.value&&e.form.delete("api/user/".concat(t)).then((function(){swal.fire("Deleted!","Your file has been deleted.","success"),Fire.$emit("refreshDataTable")}))}))},openModalForCreate:function(){this.editMode=!1,this.form.reset(),$("#usersModal").modal("show")},openModalForEdit:function(t){this.editMode=!0,this.form.reset(),$("#usersModal").modal("show"),this.form.fill(t)}},created:function(){var t=this;this.loadUsers(),Fire.$on("refreshDataTable",(function(){t.loadUsers()}))}},o=s(1),r=Object(o.a)(a,(function(){var t=this,e=t.$createElement,s=t._self._c||e;return s("div",{staticClass:"row",attrs:{id:"usersManagment"}},[s("div",{staticClass:"col-12"},[s("div",{staticClass:"card"},[s("div",{staticClass:"card-header"},[s("h3",{staticClass:"card-title"},[t._v("Users Managment")]),t._v(" "),s("div",{staticClass:"card-tools"},[s("div",{staticClass:"input-group input-group-sm"},[s("button",{staticClass:"btn btn-success",on:{click:t.openModalForCreate}},[t._v("Add New "),s("i",{staticClass:"fas fa-user-plus"})])])])]),t._v(" "),s("div",{staticClass:"card-body table-responsive p-0"},[s("table",{staticClass:"table table-hover text-nowrap"},[t._m(0),t._v(" "),s("tbody",t._l(t.users,(function(e,a){return s("tr",{key:a},[s("td",[t._v(t._s(e.id))]),t._v(" "),s("td",[t._v(t._s(e.name))]),t._v(" "),s("td",[t._v(t._s(e.email))]),t._v(" "),s("td",[t._v(t._s(t._f("upperText")(e.type)))]),t._v(" "),s("td",[t._v(t._s(t._f("formatDate")(e.created_at))+"\n                        ")]),s("td",[s("button",{staticClass:"modify-btn",on:{click:function(s){return t.openModalForEdit(e)}}},[t._v("Edit "),s("i",{staticClass:"fa fa-edit"})]),t._v(" "),s("button",{staticClass:"modify-btn",on:{click:function(s){return t.deleteUser(e.id)}}},[t._v("Delete "),s("i",{staticClass:"fa fa-trash"})])])])})),0)])])])]),t._v(" "),s("div",{staticClass:"modal fade",attrs:{id:"usersModal",tabindex:"-1",role:"dialog","aria-labelledby":"usersModalLabel","aria-hidden":"true"}},[s("div",{staticClass:"modal-dialog",attrs:{role:"document"}},[s("div",{staticClass:"modal-content"},[s("div",{staticClass:"modal-header"},[s("h5",{staticClass:"modal-title",attrs:{id:"usersModalLabel"}},[t._v("\n                        "+t._s(t.editMode?"Edit User":"Add New User")+"\n                    ")]),t._v(" "),t._m(1)]),t._v(" "),s("form",{on:{submit:function(e){e.preventDefault(),t.editMode?t.updateUser():t.createUser()}}},[s("div",{staticClass:"modal-body"},[s("div",{staticClass:"form-group"},[s("label",[t._v("Name")]),t._v(" "),s("input",{directives:[{name:"model",rawName:"v-model",value:t.form.name,expression:"form.name"}],staticClass:"form-control",class:{"is-invalid":t.form.errors.has("name")},attrs:{type:"text",name:"name",placeholder:"Name"},domProps:{value:t.form.name},on:{input:function(e){e.target.composing||t.$set(t.form,"name",e.target.value)}}}),t._v(" "),s("has-error",{attrs:{form:t.form,field:"name"}})],1),t._v(" "),s("div",{staticClass:"form-group"},[s("label",[t._v("Email")]),t._v(" "),s("input",{directives:[{name:"model",rawName:"v-model",value:t.form.email,expression:"form.email"}],staticClass:"form-control",class:{"is-invalid":t.form.errors.has("email")},attrs:{type:"text",name:"email",placeholder:"Email Address"},domProps:{value:t.form.email},on:{input:function(e){e.target.composing||t.$set(t.form,"email",e.target.value)}}}),t._v(" "),s("has-error",{attrs:{form:t.form,field:"email"}})],1),t._v(" "),s("div",{staticClass:"form-group"},[s("textarea",{directives:[{name:"model",rawName:"v-model",value:t.form.bio,expression:"form.bio"}],staticClass:"form-control",class:{"is-invalid":t.form.errors.has("bio")},attrs:{name:"bio",id:"bio",placeholder:"Short bio for user (Optional)"},domProps:{value:t.form.bio},on:{input:function(e){e.target.composing||t.$set(t.form,"bio",e.target.value)}}}),t._v(" "),s("has-error",{attrs:{form:t.form,field:"bio"}})],1),t._v(" "),s("div",{staticClass:"form-group"},[s("select",{directives:[{name:"model",rawName:"v-model",value:t.form.type,expression:"form.type"}],staticClass:"form-control",class:{"is-invalid":t.form.errors.has("type")},attrs:{name:"type",id:"type"},on:{change:function(e){var s=Array.prototype.filter.call(e.target.options,(function(t){return t.selected})).map((function(t){return"_value"in t?t._value:t.value}));t.$set(t.form,"type",e.target.multiple?s:s[0])}}},[s("option",{attrs:{value:""}},[t._v("Select User Role")]),t._v(" "),s("option",{attrs:{value:"admin"}},[t._v("Admin")]),t._v(" "),s("option",{attrs:{value:"user"}},[t._v("Standard User")]),t._v(" "),s("option",{attrs:{value:"author"}},[t._v("Author")])]),t._v(" "),s("has-error",{attrs:{form:t.form,field:"type"}})],1),t._v(" "),s("div",{staticClass:"form-group"},[s("input",{directives:[{name:"model",rawName:"v-model",value:t.form.password,expression:"form.password"}],staticClass:"form-control",class:{"is-invalid":t.form.errors.has("password")},attrs:{type:"password",name:"password",id:"password"},domProps:{value:t.form.password},on:{input:function(e){e.target.composing||t.$set(t.form,"password",e.target.value)}}}),t._v(" "),s("has-error",{attrs:{form:t.form,field:"password"}})],1)]),t._v(" "),s("div",{staticClass:"modal-footer"},[s("button",{staticClass:"btn btn-secondary",attrs:{type:"button","data-dismiss":"modal"}},[t._v("Close")]),t._v(" "),s("button",{staticClass:"btn",class:[t.editMode?"btn-success":"btn-primary"],attrs:{type:"submit"}},[t._v("\n                            "+t._s(t.editMode?"Edit":"Create")+"\n                        ")])])])])])])])}),[function(){var t=this,e=t.$createElement,s=t._self._c||e;return s("thead",[s("tr",[s("th",[t._v("ID")]),t._v(" "),s("th",[t._v("Name")]),t._v(" "),s("th",[t._v("Email")]),t._v(" "),s("th",[t._v("Type")]),t._v(" "),s("th",[t._v("Modify")])])])},function(){var t=this.$createElement,e=this._self._c||t;return e("button",{staticClass:"close",attrs:{type:"button","data-dismiss":"modal","aria-label":"Close"}},[e("span",{attrs:{"aria-hidden":"true"}},[this._v("×")])])}],!1,null,null,null);e.default=r.exports}}]);
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([[9],{
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/customer/Appointments.vue?vue&type=script&lang=js&":
+/*!********************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/customer/Appointments.vue?vue&type=script&lang=js& ***!
+  \********************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      events: [],
+      eventsForCalender: [],
+      a: ""
+    };
+  },
+  methods: {
+    loadUserProfile: function loadUserProfile() {
+      var _this = this;
+
+      axios.get("/api/profile").then(function (_ref) {
+        var data = _ref.data;
+        _this.user = data.user;
+
+        if (data.appointments && data.appointments.length > 0) {
+          _this.events = data.appointments;
+
+          _this.events.forEach(function (item) {
+            _this.eventsForCalender.push({
+              title: item.pivot.salon_name,
+              description: "<div class=\"mt-2\"><p class=\"mb-1\"><b>Usluga:</b> ".concat(item.pivot.service_name, "</p><p class=\"mb-1\"><b>Poruka:</b> ").concat(item.pivot.message, "</p><p class=\"mb-1\"><b>Vrijeme:</b> ").concat(item.pivot.time, "</p></div>"),
+              icon: "",
+              start: item.pivot.date,
+              end: item.pivot.date,
+              className: 'fc-bg-default',
+              allDay: false
+            });
+          });
+
+          window.eventsForCalender = _this.eventsForCalender;
+        }
+      }).then(function () {
+        _this.initCalender();
+      });
+    },
+    initCalender: function initCalender() {
+      jQuery(document).ready(function () {
+        jQuery('.datetimepicker').datepicker({
+          timepicker: true,
+          language: 'en',
+          range: true,
+          multipleDates: true,
+          multipleDatesSeparator: " - "
+        });
+        jQuery("#add-event").submit(function () {
+          alert("Submitted");
+          var values = {};
+          $.each($('#add-event').serializeArray(), function (i, field) {
+            values[field.name] = field.value;
+          });
+          console.log(values);
+        });
+      });
+
+      (function () {
+        'use strict'; // ------------------------------------------------------- //
+        // Calendar
+        // ------------------------------------------------------ //
+
+        jQuery(function () {
+          // page is ready
+          jQuery('#calendar').fullCalendar({
+            themeSystem: 'bootstrap4',
+            // emphasizes business hours
+            businessHours: false,
+            defaultView: 'month',
+            // event dragging & resizing
+            editable: true,
+            // header
+            header: {
+              left: 'title',
+              center: 'month,agendaWeek,agendaDay',
+              right: 'today prev,next'
+            },
+            events: window.eventsForCalender,
+            eventRender: function eventRender(event, element) {
+              if (event.icon) {
+                element.find(".fc-title").prepend("<i class='fa fa-" + event.icon + "'></i>");
+              }
+            },
+            dayClick: function dayClick() {
+              jQuery('#modal-view-event-add').modal();
+            },
+            eventClick: function eventClick(event, jsEvent, view) {
+              jQuery('.event-icon').html("<i class='fa fa-" + event.icon + "'></i>");
+              jQuery('.event-title').html(event.title);
+              jQuery('.event-body').html(event.description);
+              jQuery('.eventUrl').attr('href', event.url);
+              jQuery('#modal-view-event').modal();
+            }
+          });
+        });
+      })(jQuery);
+    }
+  },
+  mounted: function mounted() {
+    this.loadUserProfile();
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/customer/Appointments.vue?vue&type=template&id=d59d08ac&":
+/*!************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/customer/Appointments.vue?vue&type=template&id=d59d08ac& ***!
+  \************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "mb-5", attrs: { id: "fullCalendar" } }, [
+    _vm.eventsForCalender.length === 0
+      ? _c(
+          "div",
+          { staticClass: "data-not-found d-flex justify-content-center" },
+          [_vm._m(0)]
+        )
+      : _vm._e(),
+    _vm._v(" "),
+    _vm._m(1),
+    _vm._v(" "),
+    _vm._m(2)
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "m-auto" }, [
+      _c("img", {
+        staticClass: "w-50 mx-auto d-block tex-center",
+        attrs: { src: "/img/broke.svg", alt: "" }
+      }),
+      _vm._v(" "),
+      _c("h2", { staticClass: "mt-3 text-center" }, [
+        _vm._v("Nemate zakazanih termina!")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", [
+      _c("div", { staticClass: "card" }, [
+        _c("div", { staticClass: "card-body p-0" }, [
+          _c("div", { attrs: { id: "calendar" } })
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      {
+        staticClass: "modal modal-top fade calendar-modal",
+        attrs: { id: "modal-view-event" }
+      },
+      [
+        _c("div", { staticClass: "modal-dialog modal-dialog-centered" }, [
+          _c("div", { staticClass: "modal-content" }, [
+            _c("div", { staticClass: "modal-body" }, [
+              _c("h2", { staticClass: "modal-title" }, [
+                _c("span", { staticClass: "event-icon" }),
+                _c("span", { staticClass: "event-title" })
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "event-body" })
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "modal-footer" }, [
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-primary",
+                  attrs: { type: "button", "data-dismiss": "modal" }
+                },
+                [_vm._v("Zatvori")]
+              )
+            ])
+          ])
+        ])
+      ]
+    )
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/customer/Appointments.vue":
+/*!***********************************************************!*\
+  !*** ./resources/js/components/customer/Appointments.vue ***!
+  \***********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Appointments_vue_vue_type_template_id_d59d08ac___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Appointments.vue?vue&type=template&id=d59d08ac& */ "./resources/js/components/customer/Appointments.vue?vue&type=template&id=d59d08ac&");
+/* harmony import */ var _Appointments_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Appointments.vue?vue&type=script&lang=js& */ "./resources/js/components/customer/Appointments.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _Appointments_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Appointments_vue_vue_type_template_id_d59d08ac___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _Appointments_vue_vue_type_template_id_d59d08ac___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/customer/Appointments.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/customer/Appointments.vue?vue&type=script&lang=js&":
+/*!************************************************************************************!*\
+  !*** ./resources/js/components/customer/Appointments.vue?vue&type=script&lang=js& ***!
+  \************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Appointments_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./Appointments.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/customer/Appointments.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Appointments_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/customer/Appointments.vue?vue&type=template&id=d59d08ac&":
+/*!******************************************************************************************!*\
+  !*** ./resources/js/components/customer/Appointments.vue?vue&type=template&id=d59d08ac& ***!
+  \******************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Appointments_vue_vue_type_template_id_d59d08ac___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./Appointments.vue?vue&type=template&id=d59d08ac& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/customer/Appointments.vue?vue&type=template&id=d59d08ac&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Appointments_vue_vue_type_template_id_d59d08ac___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Appointments_vue_vue_type_template_id_d59d08ac___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ })
+
+}]);
