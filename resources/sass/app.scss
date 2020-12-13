@@ -21,6 +21,8 @@
 
 // Admin page
 @import "admin/core/nav";
+@import "admin/components/calendar";
+@import "admin/components/profile";
 
 // Landing Page
 
@@ -31,6 +33,11 @@
 @import "landing/components/header";
 @import "landing/components/salon-card";
 @import "landing/components/accordion";
+@import "landing/components/modal";
+
+.invalid-feedback {
+  display: block;
+}
 
 
 

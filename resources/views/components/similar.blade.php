@@ -1,4 +1,5 @@
 @if($similar && count($similar) > 0)
+
     <section class="section section-padding smaller">
         <div class="container">
             <div class="row">
@@ -10,7 +11,9 @@
                         <!-- salon_card -->
                         <div class="card salon-card">
                             <a href="/salon-details/{{ $salon->id }}" class="salon-link">
-                                <img class="card-img-top" src="/img/hotels/ibero.png" alt="Card image">
+                                @if(count($salon->images) > 0)
+                                <img class="card-img-top" src="/img/profile/salon/{{ $salon->images[0]->image_path }}" alt="Card image">
+                                @endif
                             </a>
                             <div class="card-body pb-0">
                                 <a href="/salon-details/{{ $salon->id }}" class="hoverable-link">

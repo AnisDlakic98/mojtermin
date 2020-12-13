@@ -15,8 +15,9 @@ class CreateSalonsTable extends Migration
     {
         Schema::create('salons', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('status')->default(0);
             $table->string('name');
-            $table->string('description')->nullable();
+            $table->longText('description')->nullable();
             $table->string('address');
             $table->string('phone_number');
             $table->integer('stars')->nullable();
@@ -26,6 +27,12 @@ class CreateSalonsTable extends Migration
             $table->string('website')->nullable();
             $table->string('latitude')->nullable();
             $table->string('longitude')->nullable();
+            $table->time('workdaysOpen')->nullable();
+            $table->time('workdaysClose')->nullable();
+            $table->time('saturdayOpen')->nullable();
+            $table->time('saturdayClose')->nullable();
+            $table->time('sundayOpen')->nullable();
+            $table->time('sundayClose')->nullable();
 
             $table->foreign('category_id')
                 ->references('id')->on('categories')

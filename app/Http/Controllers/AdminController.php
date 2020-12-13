@@ -9,7 +9,7 @@ class AdminController extends Controller
 
     public function __construct()
     {
-        $this->middleware(['auth', 'verified', 'role:administrator']); // ako imamo npr neki profile kontroller isto ovoo stavjamo, dje god nam treba provjera da li je verifikkovan
+        $this->middleware(['auth', 'verified', 'role:administrator']);
     }
 
     public function index()

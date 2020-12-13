@@ -6,21 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Salon extends Model
 {
-//    protected $fillable = [
-//        'name',
-//        'status',
-//        'pib',
-//        'address',
-//        'phone_number',
-//        'category_id',
-//        'city_id',
-//        'website',
-//        'stars',
-//        'latitude',
-//        'longitude',
-//        'description',
-//        'image_path',
+    protected $fillable = [];
+
+//    protected $casts = [
+//        'workdaysOpen' => 'hh:mm'
 //    ];
+
 
     public $timestamps = false;
 
@@ -45,5 +36,14 @@ class Salon extends Model
     public function services(){
         return $this->belongsToMany(Service::class, 'salon_service', 'salon_id');
     }
+
+    public function appointments(){
+        return $this->belongsToMany(Service::class, 'appointments', 'salon_id');
+    }
+
+    public function images(){
+        return $this->belongsToMany(Image::class, 'salon_images', 'salon_id');
+    }
+
 
 }

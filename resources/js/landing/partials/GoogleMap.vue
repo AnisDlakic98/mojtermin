@@ -19,13 +19,17 @@
 
 <script>
     export default {
+        props: {
+            latitude: Number,
+            longitude: Number,
+        },
         data(){
             return {
                 mapIcon: "./theme/img/location-white.svg",
                 currentHotelThumb: "",
                 startLocation: {
-                    lat: 42.2842,
-                    lng: 18.8745
+                    lat: this.latitude,
+                    lng: this.longitude
                 },
                 markerOptions: {
                     url: "/img/map-marker.ico",

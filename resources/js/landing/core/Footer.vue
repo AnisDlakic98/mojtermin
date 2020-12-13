@@ -1,86 +1,45 @@
 <template>
     <!-- footer start -->
     <footer class="footer">
-        <div class="footer_top">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xl-4 col-md-6 col-lg-4">
+        <div class="footer_top p-0 py-5">
+            <div class="container py-5">
+                <div class="d-flex justify-content-between">
+                    <div class="col-lg-5">
                         <div class="footer_widget">
                             <div class="footer_logo">
                                 <a href="#">
-                                    <img src="img/logo.png" alt="">
+                                    <img src="/img/mojtermin_logo_light.png" alt="mojtermin-logo" style="width: 250px">
                                 </a>
                             </div>
-                            <p>
-                                Firmament morning sixth subdue darkness
-                                creeping gathered divide.
-                            </p>
-                            <div class="socail_links">
+                            <p>Naš cilj je da ti pomognemo u svakodnevnom radu i da tvoje mušterije budu oduševljene. Ako imaš predloge za nove funkcionalnosti piši nam.</p>
+                        </div>
+                    </div>
+                    <div class="d-flex">
+                        <div class="col-lg-6">
+                            <div class="footer_widget">
+                                <h3 class="footer_title">
+                                    Stranice
+                                </h3>
                                 <ul>
-                                    <li>
-                                        <a href="#">
-                                            <i class="ti-facebook"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="ti-twitter-alt"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="fa fa-instagram"></i>
-                                        </a>
-                                    </li>
+                                    <li><a href="/">Početna</a></li>
+                                    <li><a href="/about">O nama</a></li>
+                                    <li><a href="/faqs">FAQs</a></li>
+                                    <li><a href="/contact">Podrška</a></li>
+                                </ul>
+
+                            </div>
+                        </div>
+                        <div class="col-lg-12">
+                            <div class="footer_widget">
+                                <h3 class="footer_title">
+                                    Administracija
+                                </h3>
+                                <ul>
+                                    <li><a href="/login">Prijavi se</a></li>
+                                    <li><a href="/register-owner">Registruj salon</a></li>
+                                    <li><a href="/register-customer">Registruj se kao mušterija</a></li>
                                 </ul>
                             </div>
-
-                        </div>
-                    </div>
-                    <div class="col-xl-2 offset-xl-1 col-md-6 col-lg-3">
-                        <div class="footer_widget">
-                            <h3 class="footer_title">
-                                Services
-                            </h3>
-                            <ul>
-                                <li><a href="#">Team management</a></li>
-                                <li><a href="#">Collaboration</a></li>
-                                <li><a href="#">Todo</a></li>
-                                <li><a href="#">Events</a></li>
-                            </ul>
-
-                        </div>
-                    </div>
-                    <div class="col-xl-2 col-md-6 col-lg-2">
-                        <div class="footer_widget">
-                            <h3 class="footer_title">
-                                Useful Links
-                            </h3>
-                            <ul>
-                                <li><a href="#">Pricing</a></li>
-                                <li><a href="#">Features</a></li>
-                                <li><a href="#">Blog</a></li>
-                                <li><a href="#">Contact</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-md-6 col-lg-3">
-                        <div class="footer_widget">
-                            <h3 class="footer_title">
-                                Downloads
-                            </h3>
-                            <ul>
-                                <li>
-                                    <a href="#">
-                                        Download from Apple Store
-
-                                    </a>
-                                </li>
-                                <li><a href="#">
-                                    Download from Play Store
-                                </a>
-                                </li>
-                            </ul>
                         </div>
                     </div>
                 </div>
@@ -92,9 +51,7 @@
                 <div class="row">
                     <div class="col-xl-12">
                         <p class="copy_right text-center">
-                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                            Copyright &copy; All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                            Copyright © 2020 - 2021 MojTermin by <a href="">AnisDlakic</a>. Sva prava zadržana.
                         </p>
                     </div>
                 </div>

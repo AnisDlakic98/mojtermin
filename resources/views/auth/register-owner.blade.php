@@ -5,22 +5,28 @@
     <bradcam title="Registracija"></bradcam>
 
     <!-- registration_start -->
-    <section class="contact-section">
+    <section class="contact-section" id="registerPage">
         <div class="container">
             <div class="row">
-                <div class="col-md-8 mx-auto">
+                <div class="col-md-9 mx-auto">
                     <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-                        <li class="nav-item">
-                            <a href="/register-customer" class="nav-link" aria-selected="false">Kao korisnik</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home"
-                               role="tab" aria-controls="pills-home" aria-selected="true">Registruj moj salon</a>
-                        </li>
+                        <div class="row justify-content-between">
+                            <div class="col-md-6 pr-5">
+                                <a class="nav-link" href="/register-customer">
+                                    <h4><i class="fas fa-user-circle mr-2" style="font-size: 30px"></i> Kao korisnik</h4>
+                                    <p>Registruj se kao mušterija i odmah počni sa zakazivanjem u svojim omiljenim salonima. Pregled termina i pretraga salona.</p>
+                                </a>
+                            </div>
+                            <div class="col-md-6 pl-5">
+                                <a class="nav-link active" aria-selected="false">
+                                    <h4><i class="fas fa-briefcase mr-2" style="font-size: 30px"></i> Registruj svoj salon</h4>
+                                    <p>MojTermin je odlično mjesto za reklamu Vašeg salona, kao i za vodjenje evidencije o svom radu i terminima sa klijentima.</p>
+                                </a>
+                            </div>
+                        </div>
                     </ul>
 
-
-                    <div class="tab-content" id="pills-tabContent">
+                    <div class="tab-content mt-5" id="pills-tabContent">
                         <div class="tab-pane fade show active" id="pills-home" role="tabpanel"
                              aria-labelledby="pills-home-tab">
                             <form class="form-contact contact_form" action="{{ route('register') }}" method="POST"
@@ -32,9 +38,7 @@
                                     <div class="col-sm-6">
                                         <div class="form-group">
                                             <input type="text"
-                                                   placeholder="Ime i prezime"
-                                                   onfocus="this.placeholder = ''"
-                                                   onblur="this.placeholder = 'Ime i prezime'"
+                                                   placeholder="Ime i prezime *"
                                                    value="{{ old('name') }}"
                                                    name="name"
                                                    id="name"
@@ -52,9 +56,7 @@
                                     <div class="col-sm-6">
                                         <div class="form-group">
                                             <input type="text"
-                                                   placeholder="Email adresa"
-                                                   onfocus="this.placeholder = ''"
-                                                   onblur="this.placeholder = 'Email adresa'"
+                                                   placeholder="Email adresa *"
                                                    value="{{ old('email') }}"
                                                    name="email"
                                                    id="email"
@@ -71,9 +73,7 @@
                                     <div class="col-sm-6">
                                         <div class="form-group">
                                             <input type="password"
-                                                   placeholder="Unesite lozinku"
-                                                   onfocus="this.placeholder = ''"
-                                                   onblur="this.placeholder = 'Unesite lozinku'"
+                                                   placeholder="Unesite lozinku *"
                                                    value="{{ old('password') }}"
                                                    name="password"
                                                    id="password"
@@ -90,9 +90,7 @@
                                     <div class="col-sm-6">
                                         <div class="form-group">
                                             <input type="password"
-                                                   placeholder="Ponovi lozinku"
-                                                   onfocus="this.placeholder = ''"
-                                                   onblur="this.placeholder = 'Ponovi lozinku'"
+                                                   placeholder="Ponovi lozinku *"
                                                    value="{{ old('password_confirmation') }}"
                                                    name="password_confirmation"
                                                    id="password_confirmation"
@@ -113,8 +111,6 @@
                                         <div class="form-group">
                                             <input type="text"
                                                    placeholder="Naziv Salona *"
-                                                   onfocus="this.placeholder = ''"
-                                                   onblur="this.placeholder = 'Naziv Salona *'"
                                                    value="{{ old('salon_name') }}"
                                                    name="salon_name"
                                                    id="salon_name"
@@ -164,8 +160,6 @@
                                         <div class="form-group">
                                             <input type="text"
                                                    placeholder="Adresa Salona *"
-                                                   onfocus="this.placeholder = ''"
-                                                   onblur="this.placeholder = 'Adresa Salona *'"
                                                    value="{{ old('salon_address') }}"
                                                    name="salon_address"
                                                    id="salon_address"
@@ -182,8 +176,6 @@
                                         <div class="form-group">
                                             <input type="text"
                                                    placeholder="Websajt (opciono)"
-                                                   onfocus="this.placeholder = ''"
-                                                   onblur="this.placeholder = 'Websajt (opciono)'"
                                                    value="{{ old('salon_address') }}"
                                                    name="website"
                                                    id="website"
@@ -200,8 +192,6 @@
                                         <div class="form-group">
                                             <input type="text"
                                                    placeholder="Broj telefona *"
-                                                   onfocus="this.placeholder = ''"
-                                                   onblur="this.placeholder = 'Broj telefona *'"
                                                    value="{{ old('phone_number') }}"
                                                    name="phone_number"
                                                    id="phone_number"

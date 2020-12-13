@@ -6646,7 +6646,9 @@ h6 {
 
 /* line 1372, ../../Arafath/CL/CL October/214. App Landing Page/HTML/scss/_blog.scss */
 .comments-area .thumb img {
-  width: 70px;
+  width: 90px;
+  height: 90px;
+  object-fit: cover;
   border-radius: 50%;
 }
 

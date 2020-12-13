@@ -21,19 +21,29 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
 Route::get('/', 'WebsiteController@welcomePageContent');
+Route::get('/about', 'WebsiteController@about');
+Route::get('/contact', 'WebsiteController@contact');
+Route::get('/faqs', 'WebsiteController@faqs');
+Route::get('/search', 'WebsiteController@search');
+Route::get('/get/salons', 'WebsiteController@paginateSalons');
 
+
+Route::post('/images-upload', 'ImageUploaderController@upload');
 Route::get('country/{country}/cities', 'CountryController@getCities');
-
 Route::get('salon-details/{id}', 'SalonController@show');
-
-
-
 
 Route::get('/register-customer', 'WebsiteController@registerCustomer');
 Route::get('/register-owner', 'WebsiteController@registerOwner');
 
 Route::get('/user', 'CustomerController@index')->name('user');
-Route::get('/admin', 'AdminController@index')->name('admin');
-Route::get('{path}', function (){return view('admin.index');})->where('path', '.*'); // solve refreshing component
+Route::get('/owner', 'AdminController@index')->name('owner');
+Route::get('/superadmin', 'SuperadminController@index')->name('superadmin');
+
+
+Route::get('{path}', 'WebsiteController@panel')->where('path', '.*');
+Route::post('comments/delete/{id}', 'CommentsController@destroy');
+
+
+
+

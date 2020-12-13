@@ -21,7 +21,7 @@
                     </p>
                     <form class="d-inline" method="POST" action="{{ route('verification.resend') }}">
                         @csrf
-                        <button type="submit" class="btn btn-primary">{{ __('Request Another') }}</button>
+                        <button type="submit" class="genric-btn info circle">Zatraži novi link</button>
                     </form>
                 </div>
             </div>

@@ -9890,8 +9890,9 @@ body,
 }
 
 .user-panel img {
-    width: 2.1rem;
-    height: auto;
+    width: 30px;
+    height: 30px;
+    object-fit: cover;
 }
 
 .user-panel .info {

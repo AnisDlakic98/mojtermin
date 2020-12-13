@@ -21,6 +21,10 @@ class DatabaseSeeder extends Seeder
             SalonStatusSeeder::class,
             ServiceSeeder::class,
             SalonServiceSeeder::class,
+            TestimonialSeeder::class,
+            AboutSeeder::class,
+            ContactSeeder::class,
+            FaqSeeder::class,
         ]);
     }
 }

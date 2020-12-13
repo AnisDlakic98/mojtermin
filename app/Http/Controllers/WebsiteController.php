@@ -2,24 +2,88 @@
 
 namespace App\Http\Controllers;
 
+use App\About;
 use App\Category;
 use App\City;
 use App\Country;
+use App\Faq;
 use App\Salon;
-use App\User;
+use App\Testimonial;
+use http\Env\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class WebsiteController extends Controller
 {
     public function welcomePageContent()
     {
-        $salons = Salon::with('city', 'statuses')->get();
-        return view('welcome', compact('salons'));
+        $salons = Salon::with('city', 'statuses', 'images')->where('status', 1)->where('city_id', 1)->get()->take(4);
+        $testimonials = Testimonial::all();
+        $about = About::first();
+        return view('welcome', compact('salons', 'testimonials', 'about'));
+    }
+
+    public function paginateSalons(\Illuminate\Http\Request $request){
+        if($request->search == "") {
+            $salons = Salon::with('city', 'statuses', 'images')
+                ->where('status', 1)
+                ->paginate(4);
+        } else {
+            $salons = Salon::with('city', 'statuses', 'images')
+                ->where('status', 1)
+                ->where('name', 'like', '%' . $request->search . '%')
+                ->paginate(4);
+        }
+        return response()->json([$salons], 200);
+    }
+
+
+    public function search()
+    {
+        return view('search');
+    }
+
+    public function about()
+    {
+        $about = About::first();
+        return view('about', compact( 'about'));
+    }
+
+    public function faqs()
+    {
+        $faqs = Faq::all();
+        return view('faqs', compact( 'faqs'));
+    }
+
+    public function contact()
+    {
+        return view('contact');
     }
 
     public function registerCustomer()
     {
         return view('auth.register-customer');
+
+    }
+
+    public function panel()
+    {
+        if(!Auth::guest()) {
+            if(Auth::user()->hasRole('administrator')){
+                return view('admin.index');
+            } else if(Auth::user()->hasRole('superadministrator')){
+                return view('superadmin.index');
+            } else {
+                return view('user.index');
+            }
+        } else {
+            return view('errors.404');
+        }
+    }
+
+    public function notFound()
+    {
+        return view('errors.404');
     }
 
     public function registerOwner()

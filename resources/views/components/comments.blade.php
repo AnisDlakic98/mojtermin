@@ -3,7 +3,7 @@
     <div class="container">
         <div class="row">
             <div class="comments-area">
-                <h4>05 Comments</h4>
+                <h4>5 Komentara</h4>
                 <div class="comment-list">
                     <div class="single-comment justify-content-between d-flex">
                         <div class="user justify-content-between d-flex">
@@ -52,12 +52,6 @@
                             <div class="form-group">
                                 <input class="form-control" name="email" id="email" type="email"
                                        placeholder="Email">
-                            </div>
-                        </div>
-                        <div class="col-12">
-                            <div class="form-group">
-                                <input class="form-control" name="website" id="website" type="text"
-                                       placeholder="Website">
                             </div>
                         </div>
                     </div>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\API;
 
+use App\Appointment;
 use App\Http\Controllers\Controller;
 use App\User;
 use Illuminate\Http\Request;
@@ -47,18 +48,35 @@ class UserController extends Controller
     {
         $user = auth('api')->user();
         $salon = User::with('salon')->where('id', auth()->id())->first()->salon;
-        return response()->json(['user' => $user, 'salon' => $salon], 200);
+        $salonAppointments = [];
+        if($salon) {
+            $salonAppointments = Appointment::where('salon_id', $salon->id)->get();
+        }
+        $appointments = User::with('appointments')->where('id', auth()->id())->first()->appointments;
+        return response()->json(['user' => $user, 'salon' => $salon, 'appointments' => $appointments, 'salonAppointments' => $salonAppointments], 200);
+    }
+
+    public function appointments()
+    {
+        $appointments = Appointment::where('id', auth()->id())->get();
+        return response()->json(['appointments' => $appointments], 200);
     }
 
     public function updateProfile(Request $request)
     {
         $user = auth('api')->user();
 
+        $messages = [
+            'nameSurname.required' => 'Unesite ime i prezime!',
+            'email.required' => 'Unesite email adresu!',
+//            'password.required' => 'Unesite adresu salona!',
+        ];
+
         $this->validate($request, [
-            'name' => 'required|string|max:191',
+            'nameSurname' => 'required|string|max:191',
             'email' => 'required|string|email|max:191|unique:users,email,' . $user->id,
             'password' => 'sometimes|required|min:8'
-        ]);
+        ], $messages);
 
         $currentPhoto = $user->photo;
         // nista ne ubacuj ako je ista slika

@@ -19,3 +19,8 @@
 .btn-booking:hover {
   background: darken($primary-color, 15);
 }
+
+#laddaBtn {
+  background: $primary-color !important;
+  //width: 150px;
+}

@@ -151,7 +151,7 @@
 
 .comment-list .thumb {
   width: 90px;
-  height: 80px;
+  height: 90px;
   background: #b4d5ff;
   border-radius: 100%;
   p {
@@ -168,6 +168,8 @@ select.form-control {
 
 .salon-gallery img {
   border-radius: 4px;
+  height: 500px;
+  object-fit: cover;
 }
 
 .salon-main-info {
@@ -219,4 +221,97 @@ select.form-control {
     padding: 20px 0;
     border-bottom: solid 1px lighten($light-gray, 30);
   }
+}
+
+.disabled {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+#commentForm input.disabled {
+  opacity: 0.6 !important;
+  background: #e8e8e8;
+}
+
+#aboutPage {
+  .html-editor {
+    p {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+  }
+}
+
+#accordion {
+  width: 100%;
+}
+
+#registerPage {
+  .nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+    background-color: #ffffff;
+    border-bottom: solid 3px $primary-color;
+  }
+  .nav-pills .nav-link {
+    border-radius: 0;
+    padding: 0;
+    h4 {
+      position: relative;
+      top: -15px;
+    }
+    p {
+      font-size: 1rem;
+    }
+    svg {
+      position: relative;
+      top: 3px;
+      path {
+        fill: $primary-color !important;
+      }
+    }
+  }
+}
+
+.contact_form {
+  select {
+    -moz-appearance:none; /* Firefox */
+    -webkit-appearance:none; /* Safari and Chrome */
+    appearance:none;
+    background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNSIgaGVpZ2h0PSIyNSIgZmlsbD0ibm9uZSIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2U9IiNiYmIiPjxwYXRoIGQ9Ik02IDlsNiA2IDYtNiIvPjwvc3ZnPg==) !important;
+    background-repeat: no-repeat !important;
+    background-position-x: 98% !important;
+    background-position-y: 50% !important;
+  }
+  select::-ms-expand  {
+    display: none !important;
+  }
+}
+
+.page-item.active .page-link {
+  background-color: $primary-color;
+  border-color: $primary-color;
+}
+
+.page-item .page-link {
+  color: $primary-color;
+  border-radius: 0 !important;
+  outline: none;
+  box-shadow: none;
+}
+
+.vdatetime-input {
+  border: none;
+  line-height: 33px;
+  font-size: 13px;
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+}
+
+.vdatetime-popup__header,
+.vdatetime-calendar__month__day--selected > span > span, .vdatetime-calendar__month__day--selected:hover > span > span {
+  background: $primary-color !important;
+}
+
+.vdatetime-popup__actions__button, .vdatetime-time-picker__item--selected {
+  color: $primary-color !important;
 }

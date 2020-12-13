@@ -1,27 +1,46 @@
 <template>
     <div class="row" id="usersManagment">
         <div class="col-12">
-            <div class="card">
+            <div v-if="services.length === 0" class="data-not-found d-flex justify-content-center">
+                <div class="m-auto">
+                    <img src="/img/broke.svg" class="w-50 mx-auto d-block tex-center" alt="">
+                    <h2 class="mt-3 text-center">Nemate dodatih usluga!</h2>
+                </div>
+                <div class="card-tools">
+                    <div class="input-group input-group-sm">
+                        <button class="btn btn-success" @click="openModalForCreate">
+                            <i class="fas fa-list"></i>
+                            Dodaj uslugu
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div v-else class="card">
                 <div class="card-header">
-                    <h3 class="card-title">Services</h3>
+                    <h3 class="card-title">Usluge</h3>
 
                     <div class="card-tools">
                         <div class="input-group input-group-sm">
-                            <button class="btn btn-success" @click="openModalForCreate">Dodaj uslugu <i
-                                    class="fas fa-user-plus"></i></button>
+                            <button class="btn btn-success" @click="openModalForCreate">
+                                <i class="fas fa-list"></i>
+                                Dodaj uslugu
+                            </button>
                         </div>
                     </div>
                 </div>
+
+
                 <!-- /.card-header -->
                 <div class="card-body table-responsive p-0">
                     <table class="table table-hover text-nowrap">
                         <thead>
                         <tr>
                             <th>ID</th>
-                            <th>Name</th>
-                            <th>Email</th>
-                            <th>Type</th>
-                            <th>Modify</th>
+                            <th>Naziv usluge</th>
+                            <th>Cijena usluge</th>
+                            <th>Trajanje</th>
+                            <th>Izmjene</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -31,10 +50,8 @@
                             <td>{{ service.price }}</td>
                             <td>{{ service.duration | upperText }}</td>
                             <td>
-                                <button class="modify-btn" @click="openModalForEdit(service)">Izmijeni <i
-                                        class="fa fa-edit"></i></button>
-                                <button class="modify-btn" @click="deleteService(service.id)">Obriši <i
-                                        class="fa fa-trash"></i></button>
+                                <button class="btn btn-warning modify-btn mr-2" @click="openModalForEdit(service)">Izmijeni <i class="fa fa-edit"></i></button>
+                                <button class="btn btn-danger modify-btn" @click="deleteService(service.id)">Obriši <i class="fa fa-trash"></i></button>
                             </td>
                         </tr>
 
@@ -62,10 +79,10 @@
                         <div class="modal-body">
                             <!-- Name Input -->
                             <div class="form-group">
-                                <label>Name</label>
+                                <label>Naziv usluge</label>
                                 <input v-model="form.name"
                                        type="text" name="name"
-                                       placeholder="Name"
+                                       placeholder="Naziv usluge"
                                        class="form-control"
                                        :class="{ 'is-invalid': form.errors.has('name') }">
                                 <has-error :form="form" field="name"></has-error>
@@ -89,7 +106,6 @@
                                         class="form-control"
                                         :class="{'is-invalid': form.errors.has('duration')}"
                                 >
-                                    <option value="0">Odaberi trajanje</option>
                                     <option value="5">5min</option>
                                     <option value="10">10min</option>
                                     <option value="15">15min</option>
@@ -140,7 +156,7 @@
 
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Odustani</button>
                             <button
                                     type="submit"
                                     class="btn"
@@ -166,11 +182,10 @@
                 services: [],
                 editMode: false,
                 form: new Form({
-                    duration: "",
+                    duration: 5,
                     id: "",
                     name: "",
                     price: "",
-
                 })
             }
         },
@@ -220,6 +235,7 @@
                     showCancelButton: true,
                     confirmButtonColor: "#3085d6",
                     cancelButtonColor: "#d33",
+                    cancelButtonText: "Odustani",
                     confirmButtonText: "Da, obriši!"
                 }).then(result => {
                     if (result.value) {
@@ -252,9 +268,6 @@
         mounted() {
             this.user = this.$gate.user;
             this.loadServices();
-
-            this.form.duration = 5;
-
 
             Fire.$on("refreshDataTable", () => {
                 this.loadServices();

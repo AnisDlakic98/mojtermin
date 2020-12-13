@@ -1,4 +1,7 @@
 <?php
+
+use App\User;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
@@ -63,6 +66,47 @@ class LaratrustSeeder extends Seeder
             }
 
         }
+
+        $user1 = User::create([
+            'name' => 'Superadmin',
+            'email' => 'superadmin@mojtermin.me',
+            'password' => Hash::make('12345678'),
+            'email_verified_at' => '2020-12-08 19:25:45.000000',
+        ]);
+        $user1->attachRole('superadministrator');
+
+        $user2 = User::create([
+            'name' => 'Luka Radović',
+            'email' => 'lukaradovic@gmail.com',
+            'password' => Hash::make('12345678'),
+            'email_verified_at' => '2020-12-08 19:25:45.000000',
+        ]);
+        $user2->attachRole('user');
+
+//        \App\Salon::create([
+//            'status' => 1,
+//            'name' => 'Chelsea Hair and Skin Clinic By KARDA',
+//            'description' => 'Ideally located in the heart of London\'s prestigious South Kensington district, Karda Beauty is a slick and sophisticated salon offering a wide selection of professional hair, beauty and wellness services. Their diverse menu ranges from relaxing massages, facials and eye care to haircuts, styling and a host of innovative hair conditioning treatments. The calm, laid-back atmosphere provides the perfect respite from the stress and chaos of the capital. This, coupled with the experience and skill of their master beauticians, makes Karda an unbeatable option for those in need of an opulent afternoon of beauty therapy in central London. Let their talented hairdressers transform your locks with a thermal scissors cut or some stunning colour highlights.',
+//            'address' => '50 Harrington Road, London (South Kensington), England',
+//            'phone_number' => '+382 68 848 285',
+//            'stars' => '5',
+//            'image_path' => '',
+//            'city_id' => 1,
+//            'category_id' => 1,
+//            'website' => 'https://fontawesome.com/',
+//            'latitude' => 42.4304,
+//            'longitude' => 19.2594,
+//        ]);
+//
+//        $user2 = User::create([
+//            'name' => 'Atko Medjedovic',
+//            'email' => 'atko@gmail.com',
+//            'password' => Hash::make('12345678'),
+//            'email_verified_at' => '2020-12-08 19:25:45.000000',
+//            'salon_id' => '1',
+//        ]);
+//        $user2->attachRole('admin');
+
     }
 
     /**

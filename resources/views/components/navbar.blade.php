@@ -13,10 +13,10 @@
                         <nav>
                             <ul id="navigation">
                                 <li><a class="active" href="/">Početna</a></li>
-                                <li><a href="contact.html">Zakaži termin</a></li>
-                                <li><a href="contact.html">Usluge</a></li>
-                                <li><a href="contact.html">FAQs</a></li>
-                                <li><a href="contact.html">Kontakt</a></li>
+                                <li><a href="/search">Pretraga salona</a></li>
+                                <li><a href="/about">O nama</a></li>
+                                <li><a href="/faqs">FAQs</a></li>
+                                <li><a href="/contact">Podrška</a></li>
                             </ul>
                         </nav>
                     </div>
@@ -32,7 +32,9 @@
                             @else
                                 <div class="book_btn d-none d-lg-block">
                                     @if(Auth::user()->hasRole('administrator'))
-                                        <a href="/admin">Moj Profil</a>
+                                        <a href="/owner">Moj Salon</a>
+                                    @elseif(Auth::user()->hasRole('superadministrator'))
+                                        <a href="/superadmin">Admin Panel</a>
                                     @else
                                         <a href="/user">Moj Profil</a>
                                     @endif

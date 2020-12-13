@@ -13,4 +13,8 @@ class Service extends Model
     public function salons(){
         return $this->belongsToMany(Salon::class, 'salon_service', 'service_id');
     }
+
+    public function appointments(){
+        return $this->belongsToMany(Salon::class, 'appointments', 'service_id');
+    }
 }

@@ -50,12 +50,26 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
 
+        $messages = [
+            'name.required' => 'Morate unijeti ime!',
+            'email.required' => 'Morate unijeti email!',
+            'password.required' => 'Morate unijeti lozinku!',
+            'email.email' => 'Unešeni email nije validan!',
+            'email.unique' => 'Korisnik sa tim email-om već postoji!',
+            'password.confirmed' => 'Lozinke se ne poklapaju!',
+
+            'salon_name.required' => 'Naziv salona je obavezan!',
+            'salon_address.required' => 'Adresa salona je obavezna!',
+            'phone_number.required' => 'Broj telefona je obavezan!',
+            'website.regex' => 'Link mora biti validan!',
+        ];
+
         if ($data['registerType'] === 'customer') {
             return Validator::make($data, [
                 'name' => ['required', 'string', 'max:255'],
                 'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
                 'password' => ['required', 'string', 'min:8', 'confirmed'],
-            ]);
+            ], $messages);
         }
 
         if ($data['registerType'] === 'owner') {
@@ -68,7 +82,7 @@ class RegisterController extends Controller
                 'salon_address' => ['required'],
                 'phone_number' => ['required'],
                 'website' => 'nullable|regex:' . $urlRegex,
-            ]);
+            ], $messages);
         }
     }
 
@@ -88,22 +102,17 @@ class RegisterController extends Controller
                 'email' => $data['email'],
                 'password' => Hash::make($data['password']),
             ]);
+
             $user->attachRole('user');
+            $this->redirectTo = '/user';
             return $user;
         }
 
         // ***************** SALON OWNER REGISTER *****************
         if ($data['registerType'] === 'owner') {
-            $this->redirectTo = '/admin';
-            $user = User::create([
-                'name' => $data['name'],
-                'email' => $data['email'],
-                'password' => Hash::make($data['password']),
-            ]);
 
-            $user->attachRole('administrator');
 
-            Salon::create([
+            $salon = Salon::create([
                 'name' => $data['salon_name'],
                 'address' => $data['salon_address'],
                 'phone_number' => $data['phone_number'],
@@ -111,6 +120,16 @@ class RegisterController extends Controller
                 'category_id' => $data['category'],
                 'website' => $data['website'],
             ]);
+
+            $user = User::create([
+                'name' => $data['name'],
+                'email' => $data['email'],
+                'password' => Hash::make($data['password']),
+                'salon_id' => $salon->id
+            ]);
+
+            $user->attachRole('administrator');
+            $this->redirectTo = '/owner';
             return $user;
         }
 

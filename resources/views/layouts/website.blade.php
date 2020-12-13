@@ -21,7 +21,7 @@
     <link rel="stylesheet" href="{{ asset("theme/css/style.css") }}">
 
     <link rel="stylesheet" href="{{ mix("/css/app.css") }}">
-    <link rel="stylesheet" href="{{ asset("/css/responsive.css") }}">
+
 </head>
 
 <body>
@@ -53,6 +53,13 @@
     <footer-area></footer-area>
 
 </div>
+
+@if(!Auth::guest())
+<script>
+    var user = JSON.parse(atob("{{ base64_encode(auth()->user()) }}"));
+    window.user = user;
+</script>
+@endif
 
 <!--/ service_area_2  -->
 <!-- JS here -->

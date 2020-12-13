@@ -4,14 +4,18 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h1 class="section-title mb-5">Featured venues in London</h1>
+                <h1 class="section-title mb-5">Popularni saloni u Bijelom Polju</h1>
             </div>
+
             @foreach ($salons as $salon)
                 <div class="col-lg-3 col-md-4 col-sm-6 col-6">
                     <!-- salon_card -->
                     <div class="card salon-card">
                         <a href="/salon-details/{{ $salon->id }}" class="salon-link">
-                            <img class="card-img-top" src="/img/hotels/ibero.png" alt="Card image">
+
+                            @if($salon->images && count($salon->images) > 0)
+                                <img class="card-img-top" src="/img/profile/salon/{{ $salon->images[0]->image_path }}" alt="Card image">
+                            @endif
                         </a>
                         <div class="card-body pb-0">
                             <a href="/salon-details/{{ $salon->id }}" class="hoverable-link">

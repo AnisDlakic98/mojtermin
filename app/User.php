@@ -19,7 +19,7 @@ class User extends Authenticatable implements MustVerifyEmail
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'bio', 'type', 'photo'
+        'name', 'email', 'password', 'bio', 'type', 'photo', 'salon_id'
     ];
 
     /**
@@ -40,7 +40,17 @@ class User extends Authenticatable implements MustVerifyEmail
         'email_verified_at' => 'datetime',
     ];
 
-    public function salon(){
+    public function salon()
+    {
         return $this->belongsTo(Salon::class);
+    }
+
+    public function comments(){
+        return $this->belongsTo(Comment::class);
+    }
+
+    public function appointments()
+    {
+        return $this->belongsToMany(User::class, 'appointments', 'user_id')->withPivot('date', 'time', 'service_name', 'salon_name');
     }
 }

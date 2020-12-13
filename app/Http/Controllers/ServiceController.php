@@ -23,11 +23,18 @@ class ServiceController extends Controller
 
     public function store(Request $request, $salonId)
     {
+        $messages = [
+            'name.required' => 'Naziv usluge je obavezan!',
+            'price.required' => 'Cijena usluge je obavezna!',
+            'duration.required' => 'Trajanje usluge je obavezno!',
+            'price.regex' => 'Cijena mora biti broj!',
+        ];
+
         $this->validate($request, [
             'name' => 'required|string|min:2|max:191',
             'price' => 'required|regex:/^\d+(\.\d{1,2})?$/',
             'duration' => 'required',
-        ]);
+        ], $messages);
 
         Service::create([
             'name' => $request['name'],
