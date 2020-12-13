@@ -39,7 +39,6 @@
             return {
                 events: [],
                 eventsForCalender: [],
-                a: "",
             }
         },
         methods: {
