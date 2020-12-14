@@ -16,6 +16,13 @@
             </div>
         </form>
 
+        <div v-if="salons.data.length === 0" class="data-not-found d-flex justify-content-center">
+            <div class="m-auto">
+                <img src="/img/broke.svg" class="w-50 mx-auto d-block tex-center" alt="">
+                <h2 class="mt-3 text-center">Nema traženih salona!</h2>
+            </div>
+        </div>
+
         <div class="col-md-12">
             <div class="row">
                 <div class="col-lg-3 col-md-4 col-sm-6 col-6" v-for="(salon, index) in salons.data" :key="salon.id">
