@@ -101,6 +101,8 @@ class RegisterController extends Controller
                 'name' => $data['name'],
                 'email' => $data['email'],
                 'password' => Hash::make($data['password']),
+                'verified_at' => '2020-12-08 19:25:45',
+
             ]);
 
             $user->attachRole('user');
@@ -125,7 +127,8 @@ class RegisterController extends Controller
                 'name' => $data['name'],
                 'email' => $data['email'],
                 'password' => Hash::make($data['password']),
-                'salon_id' => $salon->id
+                'salon_id' => $salon->id,
+                'verified_at' => '2020-12-08 19:25:45',
             ]);
 
             $user->attachRole('administrator');
