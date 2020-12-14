@@ -7,6 +7,7 @@ use App\Salon;
 use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Validator;
 
 class RegisterController extends Controller
@@ -106,7 +107,7 @@ class RegisterController extends Controller
             ]);
 
             $user->attachRole('user');
-            $this->redirectTo = '/login';
+            Redirect::to("infinite-scrubland-85284.herokuapp.com/login");
             return $user;
         }
 
@@ -132,7 +133,7 @@ class RegisterController extends Controller
             ]);
 
             $user->attachRole('administrator');
-            $this->redirectTo = '/login';
+            Redirect::to("infinite-scrubland-85284.herokuapp.com/login");
             return $user;
         }
 
