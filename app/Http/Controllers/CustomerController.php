@@ -8,7 +8,7 @@ class CustomerController extends Controller
 {
     public function __construct()
     {
-        $this->middleware(['auth', 'role:user']);
+        $this->middleware(['auth', 'verified', 'role:user']);
     }
 
     public function index(){
