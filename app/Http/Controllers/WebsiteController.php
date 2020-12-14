@@ -24,14 +24,16 @@ class WebsiteController extends Controller
     }
 
     public function paginateSalons(\Illuminate\Http\Request $request){
-        if($request->search == "") {
+        if($request->search == "" || empty($request->search)) {
             $salons = Salon::with('city', 'statuses', 'images')
                 ->where('status', 1)
+                ->where('category_id', $request->category_id)
                 ->paginate(4);
         } else {
             $salons = Salon::with('city', 'statuses', 'images')
                 ->where('status', 1)
                 ->where('name', 'like', '%' . $request->search . '%')
+                ->where('category_id', $request->category_id)
                 ->paginate(4);
         }
         return response()->json([$salons], 200);
@@ -84,6 +86,11 @@ class WebsiteController extends Controller
     public function notFound()
     {
         return view('errors.404');
+    }
+
+    public function getCategories(){
+        $categories = Category::all();
+        return response()->json(["success", $categories], 200);
     }
 
     public function registerOwner()

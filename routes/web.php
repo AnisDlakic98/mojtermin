@@ -27,6 +27,7 @@ Route::get('/contact', 'WebsiteController@contact');
 Route::get('/faqs', 'WebsiteController@faqs');
 Route::get('/search', 'WebsiteController@search');
 Route::get('/get/salons', 'WebsiteController@paginateSalons');
+Route::get('/get/categories', 'WebsiteController@getCategories');
 
 
 Route::post('/images-upload', 'ImageUploaderController@upload');

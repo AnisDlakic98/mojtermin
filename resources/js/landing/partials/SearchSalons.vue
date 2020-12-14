@@ -6,6 +6,14 @@
                     <input type="text" class="form-control" v-model="filters.search" placeholder="Unesite naziv salona..." name="name" />
                 </div>
             </div>
+
+            <div class="col-md-4">
+                <div class="form-group">
+                    <select name="category_id" class="form-control" v-model="filters.category_id">
+                        <option v-for="category in categories" :value="category.id">{{ category.name }}</option>
+                    </select>
+                </div>
+            </div>
         </form>
 
         <div class="col-md-12">
@@ -47,34 +55,53 @@
         data() {
             return {
                 salons: {},
+                categories: [],
                 filters: {
                     search: "",
+                    category_id: 1,
                 }
             }
         },
         methods: {
             applyFilters(){
-                if (this.filters.search !== "") {
-                    var request = {
-                        params: {
-                            search: this.filters.search,
-                        },
-                    };
-                    axios.get(`/get/salons`, request).then(response => {
-                        this.salons = response.data[0];
-                    }).catch(error => {
-                        console.log(error)
-                    });
-                }
+                var request = {
+                    params: {
+                        search: this.filters.search,
+                        category_id: this.filters.category_id,
+                    },
+                };
+                axios.get(`/get/salons`, request).then(response => {
+                    this.salons = response.data[0];
+                }).catch(error => {
+                    console.log(error)
+                });
             },
             getResults(page = 1) {
-                axios.get(`/get/salons?page=${page}`).then(response => {
+                var request = {
+                    params: {
+                        search: this.filters.search,
+                        category_id: this.filters.category_id,
+                    },
+                };
+                axios.get(`/get/salons?page=${page}`, request).then(response => {
                     this.salons = response.data[0];
+                }).catch(error => {
+                    console.log(error)
                 });
+
             },
             loadSalons() {
                 axios.get(`/get/salons`).then((response) => {
                     this.salons = response.data[0];
+                }).catch((error) => {
+                    console.log(error);
+                });
+            },
+            loadCategories() {
+                axios.get(`/get/categories`).then((response) => {
+                    this.categories = response.data[1];
+                    console.log(this.categories[0].id);
+                    this.filters.category_id = this.categories[0].id;
                 }).catch((error) => {
                     console.log(error);
                 });
@@ -89,7 +116,7 @@
             },
         },
         mounted() {
-            // this.loadSalons();
+            this.loadCategories();
             this.getResults();
         }
     }
