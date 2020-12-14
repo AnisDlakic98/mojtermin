@@ -50,7 +50,7 @@
 
     </main>
 
-    <footer-area></footer-area>
+    @include('components.footer')
 
 </div>
 
