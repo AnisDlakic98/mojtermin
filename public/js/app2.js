@@ -76507,7 +76507,7 @@ var render = function() {
                   "a",
                   {
                     staticClass: "salon-link",
-                    attrs: { href: "/salon-details" + salon.id }
+                    attrs: { href: "/salon-details/" + salon.id }
                   },
                   [
                     salon.images && salon.images.length > 0
@@ -76529,7 +76529,7 @@ var render = function() {
                     "a",
                     {
                       staticClass: "hoverable-link",
-                      attrs: { href: "/salon-details" + salon.id }
+                      attrs: { href: "/salon-details/" + salon.id }
                     },
                     [
                       _c("h4", { staticClass: "card-title" }, [

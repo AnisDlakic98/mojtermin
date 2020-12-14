@@ -13,11 +13,11 @@
                 <div class="col-lg-3 col-md-4 col-sm-6 col-6" v-for="(salon, index) in salons.data" :key="salon.id">
                     <!-- salon_card -->
                     <div class="card salon-card">
-                        <a :href="'/salon-details' + salon.id" class="salon-link">
+                        <a :href="'/salon-details/' + salon.id" class="salon-link">
                             <img v-if="salon.images && salon.images.length > 0" class="card-img-top" :src="'/img/profile/salon/' + salon.images[0].image_path" alt="Card image">
                         </a>
                         <div class="card-body pb-0">
-                            <a :href="'/salon-details' + salon.id" class="hoverable-link">
+                            <a :href="'/salon-details/' + salon.id" class="hoverable-link">
                                 <h4 class="card-title">{{ salon.name }}</h4>
                             </a>
                             <cite>{{ salon.address }}, {{ salon.city.name }}</cite>

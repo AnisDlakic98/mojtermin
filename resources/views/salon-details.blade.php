@@ -72,20 +72,6 @@
             <div class="row">
                 <div class="col-md-8">
                     <h1>Opis</h1>
-                    <ul class="salon-features mt-3 mb-4">
-                        <li>
-                            <i class="fas fa-bolt"></i>
-                            Instant confirmation
-                        </li>
-                        <li>
-                            <i class="fas fa-venus-mars"></i>
-                            Unisex
-                        </li>
-                        <li>
-                            <i class="fas fa-coins"></i>
-                            Pay by app
-                        </li>
-                    </ul>
                     {!! $salon->description !!}
                 </div>
                 <div class="col-md-4">
