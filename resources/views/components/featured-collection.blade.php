@@ -4,7 +4,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h1 class="section-title mb-5">Popularni saloni u Bijelom Polju</h1>
+                <h1 class="section-title mb-5">Popularni saloni</h1>
             </div>
 
             @foreach ($salons as $salon)

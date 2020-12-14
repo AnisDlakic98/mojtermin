@@ -17,7 +17,7 @@ class WebsiteController extends Controller
 {
     public function welcomePageContent()
     {
-        $salons = Salon::with('city', 'statuses', 'images')->where('status', 1)->where('city_id', 1)->get()->take(4);
+        $salons = Salon::with('city', 'statuses', 'images')->where('status', 1)->get()->take(8);
         $testimonials = Testimonial::all();
         $about = About::first();
         return view('welcome', compact('salons', 'testimonials', 'about'));
