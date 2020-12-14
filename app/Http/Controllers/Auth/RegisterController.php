@@ -101,7 +101,7 @@ class RegisterController extends Controller
                 'name' => $data['name'],
                 'email' => $data['email'],
                 'password' => Hash::make($data['password']),
-                'email_verified_at' => '2020-12-08 19:25:45',
+                'email_verified_at' => date('Y-m-d H:i:s'),
             ]);
 
             $this->redirectTo = '/login';
@@ -128,10 +128,10 @@ class RegisterController extends Controller
                 'email' => $data['email'],
                 'password' => Hash::make($data['password']),
                 'salon_id' => $salon->id,
-                'email_verified_at' => '2020-12-08 19:25:45',
+                'email_verified_at' => date('Y-m-d H:i:s'),
             ]);
 
-            $this->redirectTo = '/login';
+            $this->redirectTo = '/owner';
             $user->attachRole('administrator');
             return $user;
         }

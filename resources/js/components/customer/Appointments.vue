@@ -1,14 +1,14 @@
 <template>
     <div id="fullCalendar" class="mb-5">
 
-        <div v-if="eventsForCalender.length === 0" class="data-not-found d-flex justify-content-center">
+        <div v-if="events.length === 0" class="data-not-found d-flex justify-content-center">
             <div class="m-auto">
                 <img src="/img/broke.svg" class="w-50 mx-auto d-block tex-center" alt="">
                 <h2 class="mt-3 text-center">Nemate zakazanih termina!</h2>
             </div>
         </div>
 
-        <div>
+        <div v-if="events.length !== 0">
             <div class="card">
                 <div class="card-body p-0">
                     <div id="calendar"></div>
@@ -17,7 +17,7 @@
         </div>
 
         <!-- calendar modal -->
-        <div id="modal-view-event" class="modal modal-top fade calendar-modal">
+        <div v-if="events.length !== 0" id="modal-view-event" class="modal modal-top fade calendar-modal">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-body">

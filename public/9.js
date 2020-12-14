@@ -164,7 +164,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "mb-5", attrs: { id: "fullCalendar" } }, [
-    _vm.eventsForCalender.length === 0
+    _vm.events.length === 0
       ? _c(
           "div",
           { staticClass: "data-not-found d-flex justify-content-center" },
@@ -172,9 +172,18 @@ var render = function() {
         )
       : _vm._e(),
     _vm._v(" "),
-    _vm._m(1),
+    _vm.events.length !== 0 ? _c("div", [_vm._m(1)]) : _vm._e(),
     _vm._v(" "),
-    _vm._m(2)
+    _vm.events.length !== 0
+      ? _c(
+          "div",
+          {
+            staticClass: "modal modal-top fade calendar-modal",
+            attrs: { id: "modal-view-event" }
+          },
+          [_vm._m(2)]
+        )
+      : _vm._e()
   ])
 }
 var staticRenderFns = [
@@ -197,11 +206,9 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", [
-      _c("div", { staticClass: "card" }, [
-        _c("div", { staticClass: "card-body p-0" }, [
-          _c("div", { attrs: { id: "calendar" } })
-        ])
+    return _c("div", { staticClass: "card" }, [
+      _c("div", { staticClass: "card-body p-0" }, [
+        _c("div", { attrs: { id: "calendar" } })
       ])
     ])
   },
@@ -209,38 +216,29 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      {
-        staticClass: "modal modal-top fade calendar-modal",
-        attrs: { id: "modal-view-event" }
-      },
-      [
-        _c("div", { staticClass: "modal-dialog modal-dialog-centered" }, [
-          _c("div", { staticClass: "modal-content" }, [
-            _c("div", { staticClass: "modal-body" }, [
-              _c("h2", { staticClass: "modal-title" }, [
-                _c("span", { staticClass: "event-icon" }),
-                _c("span", { staticClass: "event-title" })
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "event-body" })
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "modal-footer" }, [
-              _c(
-                "button",
-                {
-                  staticClass: "btn btn-primary",
-                  attrs: { type: "button", "data-dismiss": "modal" }
-                },
-                [_vm._v("Zatvori")]
-              )
-            ])
-          ])
+    return _c("div", { staticClass: "modal-dialog modal-dialog-centered" }, [
+      _c("div", { staticClass: "modal-content" }, [
+        _c("div", { staticClass: "modal-body" }, [
+          _c("h2", { staticClass: "modal-title" }, [
+            _c("span", { staticClass: "event-icon" }),
+            _c("span", { staticClass: "event-title" })
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "event-body" })
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "modal-footer" }, [
+          _c(
+            "button",
+            {
+              staticClass: "btn btn-primary",
+              attrs: { type: "button", "data-dismiss": "modal" }
+            },
+            [_vm._v("Zatvori")]
+          )
         ])
-      ]
-    )
+      ])
+    ])
   }
 ]
 render._withStripped = true
