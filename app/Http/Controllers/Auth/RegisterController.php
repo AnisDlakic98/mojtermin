@@ -107,7 +107,7 @@ class RegisterController extends Controller
             ]);
 
             $user->attachRole('user');
-            Redirect::to("infinite-scrubland-85284.herokuapp.com/login");
+            Redirect::to("http://infinite-scrubland-85284.herokuapp.com/login");
             return $user;
         }
 
@@ -133,7 +133,7 @@ class RegisterController extends Controller
             ]);
 
             $user->attachRole('administrator');
-            Redirect::to("infinite-scrubland-85284.herokuapp.com/login");
+            Redirect::to("http://infinite-scrubland-85284.herokuapp.com/login");
             return $user;
         }
 
