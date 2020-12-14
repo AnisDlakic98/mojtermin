@@ -97,17 +97,15 @@ class RegisterController extends Controller
     {
         // ***************** CUSTOMER REGISTER *****************
         if ($data['registerType'] === 'customer') {
-            $this->redirectTo = '/user';
             $user = User::create([
                 'name' => $data['name'],
                 'email' => $data['email'],
                 'password' => Hash::make($data['password']),
                 'email_verified_at' => '2020-12-08 19:25:45',
-
             ]);
-
             $user->attachRole('user');
             Redirect::to("http://infinite-scrubland-85284.herokuapp.com/login");
+
             return $user;
         }
 
