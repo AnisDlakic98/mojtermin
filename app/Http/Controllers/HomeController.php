@@ -13,7 +13,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware(['auth', 'verified']); // ako imamo npr neki profile kontroller isto ovoo stavjamo, dje god nam treba provjera da li je verifikkovan
+        $this->middleware(['auth']); // ako imamo npr neki profile kontroller isto ovoo stavjamo, dje god nam treba provjera da li je verifikkovan
     }
 
     /**

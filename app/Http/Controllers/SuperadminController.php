@@ -8,7 +8,7 @@ class SuperadminController extends Controller
 {
     public function __construct()
     {
-        $this->middleware(['auth', 'verified', 'role:superadministrator']);
+        $this->middleware(['auth', 'role:superadministrator']);
     }
 
     public function index()
