@@ -106,7 +106,7 @@ class RegisterController extends Controller
             ]);
 
             $user->attachRole('user');
-            $this->redirectTo = '/user';
+            $this->redirectTo = '/login';
             return $user;
         }
 
@@ -132,7 +132,7 @@ class RegisterController extends Controller
             ]);
 
             $user->attachRole('administrator');
-            $this->redirectTo = '/owner';
+            $this->redirectTo = '/login';
             return $user;
         }
 
