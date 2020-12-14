@@ -190,7 +190,7 @@
                                 <p class="mb-0">{{ $service->duration }}</p>
                             </div>
                             <div>
-                                <p>From</p>
+                                <p>Cijena:</p>
                                 <h4>{{ $service->price }}€</h4>
                             </div>
                         </li>

@@ -140,7 +140,7 @@
             const date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
             const time = today.getHours() + ":" + today.getMinutes();
             this.form.date = this.$options.filters.formatDate2(date);
-            this.form.time = "01:00";
+            this.form.time = "2020-12-14T02:28:00.000Z";
             this.form.service_name = this.salon.services[0].name;
             this.form.user_id = this.$gate.user.id;
             this.form.salon_id = this.salon.id;
