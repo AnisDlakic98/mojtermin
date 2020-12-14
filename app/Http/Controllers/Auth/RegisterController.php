@@ -103,8 +103,9 @@ class RegisterController extends Controller
                 'password' => Hash::make($data['password']),
                 'email_verified_at' => '2020-12-08 19:25:45',
             ]);
+
+            $this->redirectTo = '/login';
             $user->attachRole('user');
-            Redirect::to("http://infinite-scrubland-85284.herokuapp.com/login");
 
             return $user;
         }
@@ -130,8 +131,8 @@ class RegisterController extends Controller
                 'email_verified_at' => '2020-12-08 19:25:45',
             ]);
 
+            $this->redirectTo = '/login';
             $user->attachRole('administrator');
-            Redirect::to("http://infinite-scrubland-85284.herokuapp.com/login");
             return $user;
         }
 
