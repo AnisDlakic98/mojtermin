@@ -19,10 +19,16 @@ class CreateCommentsTable extends Migration
             $table->string('email');
             $table->text('comment');
             $table->integer('user_id')->nullable()->unsigned();
+            $table->integer('salon_id')->nullable()->unsigned();
             $table->timestamps();
 
             $table->foreign('user_id')
                 ->references('id')->on('users')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
+
+            $table->foreign('salon_id')
+                ->references('id')->on('salons')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
         });

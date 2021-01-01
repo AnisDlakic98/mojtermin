@@ -85,11 +85,13 @@
 
 <script>
     export default {
+        props: ['salon'],
         data() {
             return {
                 edit: false,
                 form: new Form({
                     id: '',
+                    salon_id: '',
                     name: '',
                     email: '',
                     comment: '',
@@ -113,19 +115,18 @@
                 return "/img/profile/" + path;
             },
             loadComments(){
-                axios.get("/api/comments").then(({data}) => {
+                this.form.get(`/api/get/comments/${this.form.salon_id}`).then(({data}) => {
                    this.comments = data[1];
-                   console.log(data)
                 }).catch(error => {
-                    console.log("nema komentara");
                 });
             },
             loadUser() {
                 axios.get("/api/profile").then(({data}) => {
-                    this.form.fill(data.user);
+                    this.form.id = data.user.id;
+                    this.form.name = data.user.name;
+                    this.form.email = data.user.email;
                     this.form.comment = "";
                 }).catch(error => {
-                    console.log("nema");
                 });
             },
             postComment(){
@@ -215,6 +216,7 @@
             }
         },
         mounted() {
+            this.form.salon_id = this.salon.id;
             this.loadUser();
             this.loadComments();
         }

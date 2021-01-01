@@ -33,6 +33,10 @@ class Salon extends Model
         return $this->belongsToMany(Status::class, 'salon_status', 'salon_id');
     }
 
+    public function comments(){
+        return $this->belongsTo(Comment::class);
+    }
+
     public function services(){
         return $this->belongsToMany(Service::class, 'salon_service', 'salon_id');
     }

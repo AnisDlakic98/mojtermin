@@ -21,11 +21,16 @@
                                 @endif
                             </div>
                             <div>
-                                @if($salon->services && count($salon->services) > 0)
-                                    <button type="button" class="btn-booking w-100 mt-3" data-toggle="modal" data-target="#myModalFullscreen">Zakaži termin</button>
+                                @if(Auth::guest())
+                                    <button type="button" class="btn-booking w-100 mt-3 disabled" disabled>Morate se prijaviti da biste zakazivali</button>
                                 @else
-                                    <button type="button" class="btn-booking w-100 mt-3 disabled" disabled>Trenutno možete zakazati</button>
+                                    @if($salon->services && count($salon->services) > 0)
+                                        <button type="button" class="btn-booking w-100 mt-3" data-toggle="modal" data-target="#myModalFullscreen">Zakaži termin</button>
+                                    @else
+                                        <button type="button" class="btn-booking w-100 mt-3 disabled" disabled>Trenutno ne možete zakazati</button>
+                                    @endif
                                 @endif
+
                             </div>
                         </div>
                     </div>
@@ -203,7 +208,7 @@
     <fullscreen-modal :salon="{{ $salon }}"></fullscreen-modal>
     @endif
 
-    <comments></comments>
+    <comments :salon="{{ $salon }}"></comments>
 
     @include('components.similar')
 

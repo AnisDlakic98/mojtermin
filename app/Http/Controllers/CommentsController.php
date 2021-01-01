@@ -11,9 +11,9 @@ use Illuminate\Support\Facades\DB;
 class CommentsController extends Controller
 {
 
-    public function index()
+    public function getCommentBySalonId($id)
     {
-        $comments = Comment::with('user')->get();
+        $comments = Comment::with('user')->where('salon_id', $id)->get();
         return response()->json(["success", $comments], 200);
     }
 
@@ -34,6 +34,7 @@ class CommentsController extends Controller
                     'name' => $request['name'],
                     'email' => $request['email'],
                     'comment' => $request['comment'],
+                    'salon_id' => $request['salon_id'],
                     'created_at' => date('Y-m-d H:i:s'),
                 ]);
             } else {
@@ -43,13 +44,12 @@ class CommentsController extends Controller
                     'comment' => $request['comment'],
                     'created_at' => date('Y-m-d H:i:s'),
                     'user_id' => $request['id'],
+                    'salon_id' => $request['salon_id'],
                 ]);
             }
 
-            return ['message' => 'Service created successfully'];
+            return ['message' => $request];
         }
-
-
 
     }
 
