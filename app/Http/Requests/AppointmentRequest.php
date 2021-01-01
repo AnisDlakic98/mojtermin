@@ -27,6 +27,7 @@ class AppointmentRequest extends FormRequest
             'service_id' => ['required'],
             'date' => ['required'],
             'time' => ['required'],
+            'contact_phone' => 'required, regex: ^\+([0-9]+ )+[0-9]+$',
         ];
     }
 
@@ -36,6 +37,8 @@ class AppointmentRequest extends FormRequest
             'service_id.required' => 'Morate odabrati uslugu!',
             'date.required' => 'Morate odabrati datum termina!',
             'time.required' => 'Morate odabrati vrijeme termina!',
+            'contact_phone.required' => 'Kontakt telefon je obavezan!',
+            'contact_phone.regex' => 'Kontakt telefon mora pocinjati sa pozivnim brojem +382 i broj mora biti validan!',
         ];
     }
 }

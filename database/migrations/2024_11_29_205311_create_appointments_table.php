@@ -17,6 +17,7 @@ class CreateAppointmentsTable extends Migration
             $table->increments('id');
             $table->integer('salon_id')->unsigned();
             $table->integer('user_id')->unsigned();
+            $table->string('contact_phone');
             $table->string('service_name');
             $table->string('salon_name');
             $table->text('message')->nullable();

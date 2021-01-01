@@ -38,7 +38,7 @@ class Salon extends Model
     }
 
     public function appointments(){
-        return $this->belongsToMany(Service::class, 'appointments', 'salon_id');
+        return $this->belongsToMany(Salon::class, 'appointments', 'salon_id')->withPivot('date', 'time');
     }
 
     public function images(){

@@ -42,6 +42,8 @@ Route::apiResources(['about' => 'AboutController']);
 Route::apiResources(['contact' => 'ContactController']);
 Route::apiResources(['faqs' => 'FaqController']);
 
+Route::get('appointment/avaiable/{date}', 'AppointmentController@checkAvaiableTimeByDate');
+
 
 //Route::get('comments/{id}', 'CommentsController@getCommentsByUser');
 

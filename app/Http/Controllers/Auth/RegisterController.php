@@ -119,6 +119,7 @@ class RegisterController extends Controller
                 'address' => $data['salon_address'],
                 'phone_number' => $data['phone_number'],
                 'city_id' => $data['city'],
+                'gender' => $data['gender'],
                 'category_id' => $data['category'],
                 'website' => $data['website'],
             ]);

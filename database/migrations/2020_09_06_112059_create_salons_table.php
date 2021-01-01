@@ -16,6 +16,7 @@ class CreateSalonsTable extends Migration
         Schema::create('salons', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('status')->default(0);
+            $table->string('gender')->nullable();
             $table->string('name');
             $table->longText('description')->nullable();
             $table->string('address');

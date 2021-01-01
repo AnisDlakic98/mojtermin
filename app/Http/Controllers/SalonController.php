@@ -31,7 +31,7 @@ class SalonController extends Controller
     public function show($id)
     {
         $similar = Salon::with('city', 'statuses')->where('id', '!=', $id)->where('status', 1)->get()->take(4);
-        $salon = Salon::with('services')->findOrFail( $id);
+        $salon = Salon::with('services', 'appointments')->findOrFail( $id);
 
         return view('salon-details', compact('salon', 'similar'));
     }

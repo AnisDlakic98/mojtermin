@@ -32,6 +32,8 @@ Route::get('/get/categories', 'WebsiteController@getCategories');
 
 Route::post('/images-upload', 'ImageUploaderController@upload');
 Route::get('country/{country}/cities', 'CountryController@getCities');
+Route::get('country/{countryId}/cities', 'CountryController@getCitiesByCountryId');
+
 Route::get('salon-details/{id}', 'SalonController@show');
 
 Route::get('/register-customer', 'WebsiteController@registerCustomer');

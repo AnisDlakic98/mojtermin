@@ -28,12 +28,42 @@ class WebsiteController extends Controller
             $salons = Salon::with('city', 'statuses', 'images')
                 ->where('status', 1)
                 ->where('category_id', $request->category_id)
+                ->where(function ($query) use ($request) {
+                    if ($request->stars != null) {
+                        $query->whereIn('salons.stars', $request->stars);
+                    }
+                })
+                ->where(function ($query) use ($request) {
+                    if ($request->cities != null) {
+                        $query->whereIn('salons.city_id', $request->cities);
+                    }
+                })
+                ->where(function ($query) use ($request) {
+                    if ($request->gender != null) {
+                        $query->whereIn('salons.gender', $request->gender);
+                    }
+                })
                 ->paginate(4);
         } else {
             $salons = Salon::with('city', 'statuses', 'images')
                 ->where('status', 1)
                 ->where('name', 'like', '%' . $request->search . '%')
                 ->where('category_id', $request->category_id)
+                ->where(function ($query) use ($request) {
+                    if ($request->stars != null) {
+                        $query->whereIn('salons.stars', $request->stars);
+                    }
+                })
+                ->where(function ($query) use ($request) {
+                    if ($request->cities != null) {
+                        $query->whereIn('salons.city_id', $request->cities);
+                    }
+                })
+                ->where(function ($query) use ($request) {
+                    if ($request->gender != null) {
+                        $query->whereIn('salons.gender', $request->gender);
+                    }
+                })
                 ->paginate(4);
         }
         return response()->json([$salons], 200);

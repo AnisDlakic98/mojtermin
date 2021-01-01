@@ -8,7 +8,7 @@
             </div>
         </div>
 
-        <div>
+        <div v-if="eventsForCalender.length !== 0">
             <div class="card">
                 <div class="card-body p-0">
                     <div id="calendar"></div>

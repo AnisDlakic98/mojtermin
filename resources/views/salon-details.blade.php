@@ -24,7 +24,7 @@
                                 @if($salon->services && count($salon->services) > 0)
                                     <button type="button" class="btn-booking w-100 mt-3" data-toggle="modal" data-target="#myModalFullscreen">Zakaži termin</button>
                                 @else
-                                    <button type="button" class="btn-booking w-100 mt-3 disabled" disabled>Trenutno ne možete zakazati</button>
+                                    <button type="button" class="btn-booking w-100 mt-3 disabled" disabled>Trenutno možete zakazati</button>
                                 @endif
                             </div>
                         </div>

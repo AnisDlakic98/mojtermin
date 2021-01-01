@@ -20,6 +20,8 @@
     <link rel="stylesheet" href="/theme/css/slicknav.css">
     <link rel="stylesheet" href="/theme/css/style.css">
 
+
+
     <link rel="stylesheet" href="/css/app.css">
 
 </head>
@@ -83,9 +85,13 @@
 <script src="/theme/js/main.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/js/all.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+
 <script src="/js/app2.js"></script>
 
 @yield('scripts')
+
 
 </body>
 

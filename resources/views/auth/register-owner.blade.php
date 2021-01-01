@@ -156,7 +156,7 @@
                                             </select>
                                         </div>
                                     </div>
-                                    <div class="col-sm-12">
+                                    <div class="col-sm-6">
                                         <div class="form-group">
                                             <input type="text"
                                                    placeholder="Adresa Salona *"
@@ -169,6 +169,20 @@
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
                                             </span>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <select name="gender" class="form-control @error('gender') is-invalid @enderror">
+                                                <option value="unisex">Unisex</option>
+                                                <option value="male">Muški</option>
+                                                <option value="female">Ženski</option>
+                                            </select>
+                                            @error('gender')
+                                            <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
                                             @enderror
                                         </div>
                                     </div>

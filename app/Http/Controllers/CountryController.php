@@ -11,4 +11,14 @@ class CountryController extends Controller
     {
         return $country->cities()->select('id', 'name')->get();
     }
+
+    public function getCitiesByCountryId(Request $id)
+    {
+        $country = Country::findOrFail($id);
+        $cities = $country->cities()->select('id', 'name')->get();
+        return response()->json(['message' => $cities]);
+    }
+
+
+
 }

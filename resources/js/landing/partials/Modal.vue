@@ -8,8 +8,9 @@
                         <h4 class="my-auto">{{ form.salon_name }}</h4>
                         <div class="score-wrap my-auto ml-3">
                             <span class="stars-active" style="width:88%">
-                                <i v-for="(star, index) in salon.stars" :key="index" class="fa fa-star" aria-hidden="true"></i>
-                                <i v-if="salon.stars < 5" v-for="(star, index) in 5 - salon.stars" :key="index" class="fa fa-star dark" aria-hidden="true"></i>
+                                <i v-for="(star, index) in salon.stars" class="fa fa-star" aria-hidden="true"></i>
+                                <i v-if="salon.stars < 5" v-for="(star, index) in 5 - salon.stars"
+                                   class="fa fa-star dark" aria-hidden="true"></i>
                             </span>
                         </div>
                         <button type="button" class="close my-auto" data-dismiss="modal" aria-hidden="true">
@@ -27,35 +28,65 @@
                                             <div class="form-group">
                                                 <input type="hidden" v-model="form.user_id">
                                                 <input type="hidden" v-model="form.salon_id">
-                                                <img src="/img/mojtermin_logo_dark.png" class="w-25 d-flex mx-auto my-5" alt="mojtermin-logo">
+                                                <a href="/"><img src="/img/mojtermin_logo_dark.png" class="w-25 d-flex mx-auto my-5"
+                                                                 alt="mojtermin-logo"></a>
                                             </div>
                                         </div>
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label>Odaberite uslugu *</label>
-                                                <select name="services" class="form-control" v-model="form.service_name">
-                                                    <option v-for="service in salon.services" :value="service.name">{{ service.name }}</option>
+                                                <select name="services" class="form-control"
+                                                        v-model="form.service_name">
+                                                    <option v-for="service in salon.services" :value="service.name">{{
+                                                        service.name }}
+                                                    </option>
                                                 </select>
                                             </div>
                                         </div>
-                                        <div class="col-md-12">
+                                        <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Odaberite datum *</label>
-                                                <datetime v-model="form.date" class="form-control p-0" :class="{ 'is-invalid': form.errors.has('date') }"></datetime>
-                                                <has-error :form="form" field="date"></has-error>
+                                                <vue-ctk-date-time-picker
+                                                        v-model="form.date"
+                                                        label="Datum"
+                                                        :onlyDate="true"
+                                                        :noButtonNow="true"
+                                                        :noClearButton="true"
+                                                        format="YYYY-MM-DD"
+                                                        formatted="YYYY-MM-DD">
+                                                </vue-ctk-date-time-picker>
                                             </div>
                                         </div>
-                                        <div class="col-md-12">
+
+                                        <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Odaberite vrijeme *</label>
-                                                <datetime type="time" v-model="form.time" class="form-control p-0" :class="{ 'is-invalid': form.errors.has('time') }"></datetime>
-                                                <has-error :form="form" field="time"></has-error>
+                                                <vue-ctk-date-time-picker
+                                                        v-model="form.time"
+                                                        label="Vrijeme"
+                                                        :disabled-hours="disabledHours"
+                                                        :onlyTime="true"
+                                                        :noClearButton="true"
+                                                        format="HH:mm"
+                                                        formatted="YHH:mm">
+                                                </vue-ctk-date-time-picker>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label>Kontakt telefon *</label>
+                                                <input type="text" name="contact_phone" class="form-control"
+                                                       placeholder="+382" v-model="form.contact_phone"
+                                                       :class="{ 'is-invalid': form.errors.has('contact_phone') }">
+                                                <has-error :form="form" field="contact_phone"></has-error>
                                             </div>
                                         </div>
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label>Poruka (opciono)</label>
-                                                <textarea v-model="form.message" class="form-control" rows="5" name="message" placeholder="Poruka (opciono)"></textarea>
+                                                <textarea v-model="form.message" class="form-control" rows="5"
+                                                          name="message" placeholder="Poruka (opciono)"></textarea>
                                             </div>
                                         </div>
                                     </div>
@@ -84,10 +115,15 @@
 </template>
 
 <script>
+
+
     export default {
+
         props: ['salon'],
         data() {
             return {
+                disabledDates: [],
+                disabledHours: [],
                 form: new Form({
                     salon_id: "",
                     user_id: "",
@@ -96,6 +132,10 @@
                     salon_name: this.salon.name,
                     service_name: "",
                     message: "",
+                    contact_phone: "",
+                }),
+                form1: new Form({
+                   date: "2020-12-10",
                 }),
                 button: {
                     loading: false,
@@ -105,12 +145,32 @@
             }
         },
         methods: {
+            checkAvaiableTimeByDate() {
+                axios.get(`/api/appointment/avaiable/${this.form1.date}`).then(({data}) => {
+                    this.disabledHours = [];
+                    if(data[1].length > 0){
+                        data[1].forEach(item => {
+                            this.disabledHours.push(item.time.split(":")[0]);
+                        });
+                    }
+
+                }).catch((error) => {
+                    if (error.response.status === 500) {
+                        Swal.fire({
+                            icon: 'error',
+                            title: "Greška 500",
+                            text: "Server trenutno nije u stanju da odgovori na zahtjev.",
+                            confirmButtonText: "Nastavi"
+                        });
+                    }
+                });
+            },
             makeAppointment() {
                 this.button.loading = true;
-                if(this.form.date !== "" && this.form.time !== "") {
-                    this.form.date = this.$options.filters.formatDate2(this.form.date);
-                    this.form.time = this.$options.filters.formatTime(this.form.time);
-                }
+                // if(this.form.date !== "" && this.form.time !== "") {
+                //     this.form.date = this.$options.filters.formatDate2(this.form.date);
+                //     this.form.time = this.$options.filters.formatTime(this.form.time);
+                // }
 
                 this.form.post('/api/appointments').then(({data}) => {
                     Swal.fire({
@@ -136,14 +196,53 @@
             },
         },
         mounted() {
-            const today = new Date();
-            const date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
-            const time = today.getHours() + ":" + today.getMinutes();
-            this.form.date = this.$options.filters.formatDate2(date);
-            this.form.time = "2020-12-14T02:28:00.000Z";
+
+            this.form.date = this.$options.filters.formatDate2(new Date());
+            this.form.time = "08:00:00";
+            this.appointments = this.salon.appointments;
+            this.salon.appointments.forEach((date) => {
+                // const tempDate = this.$options.filters.formatDate2(date.pivot.date);
+                // const formatedDate = new Date(tempDate.split("-")[0] + "," + tempDate.split("-")[1] + "," + tempDate.split("-")[2]);
+                this.disabledDates.push(date.pivot.date);
+            });
+
+            // const today = new Date();
+            // const date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+            // const time = today.getHours() + ":" + today.getMinutes();
+            // this.form.date = this.$options.filters.formatDate2(date);
+            // this.form.time = "2020-12-14T02:28:00.000Z";
             this.form.service_name = this.salon.services[0].name;
             this.form.user_id = this.$gate.user.id;
             this.form.salon_id = this.salon.id;
+
+            var date = new Date();
+            switch(date.getDay()){
+                case 0:
+                    for(let i = 0; i <= 23; i++){
+                        if(i < this.salon.saturdayOpen.split(":")[0] || i > this.salon.saturdayClose.split(":")[0]) {
+                            console.log(i);
+                            this.disabledHours.push(i.toString());
+                        }
+                    }
+                    break;
+                case 6: console.log("saturday");
+                    break;
+                default:
+                    for(let i = 0; i <= 23; i++){
+                        if(i < this.salon.workdaysOpen.split(":")[0] || i > this.salon.workdaysClose.split(":")[0]) {
+                            console.log(i);
+                            this.disabledHours.push(i.toString());
+                        }
+                    }
+            }
+
+
+            this.$watch("form.date", (newVal, oldVal) => {
+                if (newVal !== oldVal) {
+                    this.form1.date = newVal;
+                    this.checkAvaiableTimeByDate();
+                }
+            });
         }
 
     }

@@ -11,6 +11,12 @@ import VueLadda from "vue-ladda";
 import swal from "sweetalert2";
 // You need a specific loader for CSS files
 import 'vue-datetime/dist/vue-datetime.css';
+import VueTimepicker from 'vuejs-timepicker';
+
+import VueCtkDateTimePicker from 'vue-ctk-date-time-picker';
+import 'vue-ctk-date-time-picker/dist/vue-ctk-date-time-picker.css';
+
+Vue.component('VueCtkDateTimePicker', VueCtkDateTimePicker);
 
 // plugins
 require('./bootstrap');
@@ -43,6 +49,8 @@ Vue.component('datetime', Datetime);
 Vue.component('GmapMap', VueGoogleMaps.Map);
 Vue.component('GmapMarker', VueGoogleMaps.Marker);
 Vue.component('GmapInfoWindow', VueGoogleMaps.InfoWindow);
+Vue.component('vue-timepicker', VueTimepicker);
+
 
 // landing page core
 Vue.component('footer-area', require('./landing/core/Footer').default);
@@ -59,6 +67,8 @@ Vue.component('pagination', require('laravel-vue-pagination'));
 
 
 
+
+
 // Global Filters
 Vue.filter("upperText", function(value) {
     return value.charAt(0).toUpperCase() + value.slice(1);
@@ -72,7 +82,6 @@ Vue.filter("formatTime", function(value) {
 Vue.filter("formatDate2", function(value) {
     return moment(value).format("YYYY-MM-DD");
 });
-
 
 
 const app = new Vue({

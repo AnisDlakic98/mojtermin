@@ -31,6 +31,12 @@ class AppointmentController extends Controller
     }
 
 
+    public function checkAvaiableTimeByDate($date)
+    {
+        $disabledHours = Appointment::where('date', $date)->get();
+        return response()->json(["success", $disabledHours], 200);
+    }
+
     public function store(Request $request)
     {
 
@@ -38,11 +44,13 @@ class AppointmentController extends Controller
             'date.required' => 'Morate odabrati datum termina!',
             'time.unique' => 'Termin je zauzet! Molimo Vas da odaberete neki drugi!',
             'time.required' => 'Morate odabrati vrijeme termina!',
+            'contact_phone.required' => 'Kontakt telefon je obavezan!',
+            'contact_phone.regex' => 'Telefon mora biti u sljedećem formatu +382 68 XXX-XXX',
         ];
 
         $this->validate($request, [
             'date' => ['required'],
-
+            'contact_phone' => ['required', 'regex: /^\+(382) ([0-9]{2}) ([0-9]{3})[-]([0-9]{3})+$/'],
             'time' => ['required', Rule::unique('appointments')->where(function ($query) use ($request) {
                 return $query->where('salon_id', $request->salon_id);
             })],
@@ -51,6 +59,7 @@ class AppointmentController extends Controller
         Appointment::create([
             'salon_id' => $request['salon_id'],
             'user_id' => $request['user_id'],
+            'contact_phone' => $request['contact_phone'],
             'service_name' => $request['service_name'],
             'salon_name' => $request['salon_name'],
             'message' => $request['message'],

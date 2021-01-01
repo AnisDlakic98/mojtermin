@@ -17,6 +17,7 @@ class SalonSeeder extends Seeder
                 [
                     'address' => '19 White Church Lane',
                     'category_id' => 1,
+                    'gender' => 'unisex',
                     'city_id' =>  1,
                     'description' => 'description',
                     'image_path' => 'description',
@@ -30,6 +31,7 @@ class SalonSeeder extends Seeder
                 [
                     'address' => '85 Whitechapel High Street',
                     'category_id' => 1,
+                    'gender' => 'unisex',
                     'city_id' =>  1,
                     'description' => 'description',
                     'image_path' => 'description',
@@ -43,6 +45,7 @@ class SalonSeeder extends Seeder
                 [
                     'address' => '19 White Church Lane',
                     'category_id' => 1,
+                    'gender' => 'male',
                     'city_id' =>  1,
                     'description' => 'description',
                     'image_path' => 'description',
@@ -56,6 +59,7 @@ class SalonSeeder extends Seeder
                 [
                     'address' => '50 Harrington Road',
                     'category_id' => 1,
+                    'gender' => 'female',
                     'city_id' =>  1,
                     'description' => 'description',
                     'image_path' => 'description',
