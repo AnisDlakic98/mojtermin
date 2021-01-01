@@ -2652,7 +2652,7 @@ __webpack_require__.r(__webpack_exports__);
         contact_phone: ""
       }),
       form1: new Form({
-        date: "2020-12-10"
+        date: ''
       }),
       button: {
         loading: false,
@@ -2718,6 +2718,7 @@ __webpack_require__.r(__webpack_exports__);
     var _this3 = this;
 
     this.form.date = this.$options.filters.formatDate2(new Date());
+    this.form1.date = this.$options.filters.formatDate2(new Date());
     this.form.time = "08:00:00";
     this.appointments = this.salon.appointments;
     this.salon.appointments.forEach(function (date) {
