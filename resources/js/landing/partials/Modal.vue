@@ -194,7 +194,6 @@
         mounted() {
 
             this.form.date = this.$options.filters.formatDate2(new Date());
-            this.checkAvaiableTimeByDate();
             this.form.time = "08:00:00";
             this.appointments = this.salon.appointments;
             this.salon.appointments.forEach((date) => {
@@ -227,11 +226,11 @@
             }
 
 
+            this.checkAvaiableTimeByDate();
+
             this.$watch("form.date", (newVal, oldVal) => {
-                if (newVal !== oldVal) {
-                    this.form1.date = newVal;
-                    this.checkAvaiableTimeByDate();
-                }
+                this.form1.date = newVal;
+                this.checkAvaiableTimeByDate();
             });
         }
 
