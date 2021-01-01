@@ -3,52 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="a8dadd25-2cdc-4a25-a0f8-ab71cb18dd51" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Appointment.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Appointment.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AppointmentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AppointmentController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CountryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CountryController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SalonController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SalonController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/WebsiteController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/WebsiteController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Requests/AppointmentRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/AppointmentRequest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Salon.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Salon.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_09_06_112059_create_salons_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_09_06_112059_create_salons_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2024_11_29_205311_create_appointments_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2024_11_29_205311_create_appointments_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/SalonSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/SalonSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/10.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/10.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/11.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/11.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/12.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/12.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/13.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/13.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/14.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/14.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/15.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/15.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/2.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/2.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/3.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/3.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/4.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/4.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/5.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/5.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/6.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/6.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/7.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/7.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/8.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/8.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/9.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/9.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/hotels/ibero.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/hotels/maestral.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/hotels/porto.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/hotels/splendid.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/hotels/splendid/1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/app2.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app2.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/app2.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/app2.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/Dashboard.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/Dashboard.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/landing/partials/Modal.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/landing/partials/Modal.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/landing/partials/SearchSalons.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/landing/partials/SearchSalons.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/sass/landing/_common.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/landing/_common.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/sass/landing/components/_salon-card.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/landing/components/_salon-card.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/register-owner.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/register-owner.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/website.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/website.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/salon-details.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/salon-details.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -78,7 +32,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/js/app2.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="203">
+            <state relative-caret-position="126">
               <caret line="15" column="52" selection-start-line="15" selection-end-line="16" />
               <folding>
                 <element signature="e#11#33#0" expanded="true" />
@@ -90,7 +44,7 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/js/landing/partials/Modal.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="439">
+            <state relative-caret-position="123">
               <caret line="68" column="77" selection-start-line="68" selection-start-column="77" selection-end-line="68" selection-end-column="77" />
               <folding>
                 <element signature="n#style#0;n#i#0;n#button#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
@@ -102,7 +56,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/salon-details.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-619">
+            <state relative-caret-position="1827">
               <caret line="87" column="83" selection-start-line="87" selection-end-line="88" />
             </state>
           </provider>
@@ -111,7 +65,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/AppointmentController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="279">
+            <state relative-caret-position="693">
               <caret line="36" column="58" selection-start-line="36" selection-start-column="44" selection-end-line="36" selection-end-column="58" />
             </state>
           </provider>
@@ -120,7 +74,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/User.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="448">
+            <state relative-caret-position="1029">
               <caret line="53" column="86" selection-start-line="53" selection-start-column="77" selection-end-line="53" selection-end-column="86" />
             </state>
           </provider>
@@ -370,7 +324,7 @@
       <path value="$PROJECT_DIR$/vendor/lcobucci/clock" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds">
     <option name="y" value="23" />
     <option name="width" value="1440" />
     <option name="height" value="809" />
@@ -624,17 +578,17 @@
       <workItem from="1609165910999" duration="16000" />
       <workItem from="1609192877754" duration="3199000" />
       <workItem from="1609442200760" duration="8141000" />
+      <workItem from="1609504793494" duration="509000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="318276000" />
+    <option name="totallyTimeSpent" value="318785000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="809" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20314735" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20600858" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -647,7 +601,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" />
       <window_info anchor="bottom" id="Version Control" order="9" weight="0.32952926" />
-      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49713877" weight="0.382311" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" sideWeight="0.49713877" visible="true" weight="0.382311" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5028612" side_tool="true" weight="0.35235378" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -934,13 +888,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/User.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="448">
-          <caret line="53" column="86" selection-start-line="53" selection-start-column="77" selection-end-line="53" selection-end-column="86" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Salon.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="420">
@@ -989,13 +936,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/AppointmentController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="279">
-          <caret line="36" column="58" selection-start-line="36" selection-start-column="44" selection-end-line="36" selection-end-column="58" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/node_modules/vue-ctk-date-time-picker/dist/vue-ctk-date-time-picker.common.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="155">
@@ -1019,7 +959,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/js/app2.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="203">
+        <state relative-caret-position="126">
           <caret line="15" column="52" selection-start-line="15" selection-end-line="16" />
           <folding>
             <element signature="e#11#33#0" expanded="true" />
@@ -1029,14 +969,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/salon-details.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-619">
+        <state relative-caret-position="1827">
           <caret line="87" column="83" selection-start-line="87" selection-end-line="88" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/AppointmentController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="693">
+          <caret line="36" column="58" selection-start-line="36" selection-start-column="44" selection-end-line="36" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/User.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1029">
+          <caret line="53" column="86" selection-start-line="53" selection-start-column="77" selection-end-line="53" selection-end-column="86" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/js/landing/partials/Modal.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="439">
+        <state relative-caret-position="123">
           <caret line="68" column="77" selection-start-line="68" selection-start-column="77" selection-end-line="68" selection-end-column="77" />
           <folding>
             <element signature="n#style#0;n#i#0;n#button#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
