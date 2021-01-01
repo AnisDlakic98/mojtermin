@@ -167,10 +167,6 @@
             },
             makeAppointment() {
                 this.button.loading = true;
-                // if(this.form.date !== "" && this.form.time !== "") {
-                //     this.form.date = this.$options.filters.formatDate2(this.form.date);
-                //     this.form.time = this.$options.filters.formatTime(this.form.time);
-                // }
 
                 this.form.post('/api/appointments').then(({data}) => {
                     Swal.fire({
@@ -198,19 +194,13 @@
         mounted() {
 
             this.form.date = this.$options.filters.formatDate2(new Date());
+            this.checkAvaiableTimeByDate();
             this.form.time = "08:00:00";
             this.appointments = this.salon.appointments;
             this.salon.appointments.forEach((date) => {
-                // const tempDate = this.$options.filters.formatDate2(date.pivot.date);
-                // const formatedDate = new Date(tempDate.split("-")[0] + "," + tempDate.split("-")[1] + "," + tempDate.split("-")[2]);
                 this.disabledDates.push(date.pivot.date);
             });
 
-            // const today = new Date();
-            // const date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
-            // const time = today.getHours() + ":" + today.getMinutes();
-            // this.form.date = this.$options.filters.formatDate2(date);
-            // this.form.time = "2020-12-14T02:28:00.000Z";
             this.form.service_name = this.salon.services[0].name;
             this.form.user_id = this.$gate.user.id;
             this.form.salon_id = this.salon.id;
