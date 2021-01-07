@@ -63,11 +63,17 @@ class SalonController extends Controller
             $uploadedFiles = $request->images;
 
             foreach ($uploadedFiles as $file){
-                $name = $file->getClientOriginalName();
-                \Image::make($file)->save(public_path('img/profile/salon/') . $name);
+
+                $fileName = pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME);
+
+                $fullFileName = $fileName."-".time().$file->getClientOriginalExtension();
+
+                \Image::make($file)->save(public_path('img/profile/salon/') . $fullFileName);
+
+
                 // add to db
                 Image::create([
-                    'image_path' => $name,
+                    'image_path' => $fullFileName,
                 ]);
 
                 $image = DB::table('images')->latest('id')->first();
